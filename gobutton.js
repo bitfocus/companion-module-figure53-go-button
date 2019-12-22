@@ -1,26 +1,26 @@
 /* eslint-disable no-useless-escape */
 /*
 Version 1.0.2
-  Added presets and actions for the timer.
-  Added preset and action for "Oops".
-  Added preset and action for full screen toggle.
-  Added preset and sction for making the master volume visible toggle.
-  Added presets and action for setting master volume (appears not to work in Go Button".
-  Added presets for increasing and decreasing master volume by 6dB.
-  Added presets for toggling the master dim.
-  Added presets for toggling the master dim.
- 
+	Added presets and actions for the timer.
+	Added preset and action for "Oops".
+	Added preset and action for full screen toggle.
+	Added preset and sction for making the master volume visible toggle.
+	Added presets and action for setting master volume (appears not to work in Go Button".
+	Added presets for increasing and decreasing master volume by 6dB.
+	Added presets for toggling the master dim.
+	Added presets for toggling the master dim.
+
 
 Version 1.0.1
-  Original code from qlab-advance version 1.1.2 by John A Knight.
-  Added configuration for customisation of GoButton port.
-  Add the ability to send custom OSC commands.
-  Commented out unsupported QLab presets and actions.
- 
-  Todo:
-    Remove Audition mode code.
-    Remove Show mode code.
-    Comment out unneeded QLab 3x or 4x connection code.
+	Original code from qlab-advance version 1.1.2 by John A Knight.
+	Added configuration for customisation of GoButton port.
+	Add the ability to send custom OSC commands.
+	Commented out unsupported QLab presets and actions.
+
+	Todo:
+		Remove Audition mode code.
+		Remove Show mode code.
+		Comment out unneeded QLab 3x or 4x connection code.
 */
 
 var instance_skel = require('../../instance_skel');
@@ -108,7 +108,7 @@ instance.prototype.resetVars = function (doUpdate) {
 		Loaded: false,
 		Broken: false,
 		Running: false,
-        goButton: '',
+		goButton: '',
 		Paused: false,
 		Color: self.rgb(0, 0, 0)
 	};
@@ -161,10 +161,10 @@ instance.prototype.updateNextCue = function () {
 	self.setVariable('n_name', self.nextCue.Name);
 	self.setVariable('n_num', self.nextCue.Num);
 	self.setVariable('n_stat', self.nextCue.Broken ? "\u2715" :
-							self.nextCue.Running ? "\u23F5" :
-							self.nextCue.Paused ? "\u23F8" :
-							self.nextCue.Loaded ? "\u23FD" :
-							"\u00b7");
+		self.nextCue.Running ? "\u23F5" :
+		self.nextCue.Paused ? "\u23F8" :
+		self.nextCue.Loaded ? "\u23FD" :
+		"\u00b7");
 	self.checkFeedbacks('playhead_bg');
 };
 
@@ -233,10 +233,10 @@ instance.prototype.updateRunning = function () {
 	self.setVariable('r_name', self.runningCue.Name);
 	self.setVariable('r_num', self.runningCue.Num);
 	self.setVariable('r_stat', self.runningCue.Broken ? "\u2715" :
-							self.runningCue.Running ? "\u23F5" :
-							self.runningCue.Paused ? "\u23F8" :
-							self.runningCue.Loaded ? "\u23FD" :
-							"\u00b7");
+		self.runningCue.Running ? "\u23F5" :
+		self.runningCue.Paused ? "\u23F8" :
+		self.runningCue.Loaded ? "\u23FD" :
+		"\u00b7");
 	self.setVariable('r_hhmmss',hh + ":" + mm + ":" + ss);
 	self.setVariable('r_hh', hh);
 	self.setVariable('r_mm', mm);
@@ -461,7 +461,7 @@ instance.prototype.init_variables = function () {
 			label: 'Running Cue Name',
 			name:  'r_name'
 		},
-        {
+				{
 			label: 'Running Cue Number',
 			name:  'r_num'
 		},
@@ -1002,14 +1002,14 @@ instance.prototype.config_fields = function () {
 			tooltip: 'Enter the name or ID for the workspace.\n Leave blank or enter \'default\' for the front Workspace',
 			default: 'default'
 		},
-        {
-            type: 'textinput',
-            id: 'port',
-            label: 'Port',
-            width: 12,
-            tooltip: '.\n Leave blank or enter \'default\' for the front Workspace',
-            default: '53100'
-        }
+				{
+						type: 'textinput',
+						id: 'port',
+						label: 'Port',
+						width: 12,
+						tooltip: '.\n Leave blank or enter \'default\' for the front Workspace',
+						default: '53100'
+				}
 	];
 };
 
@@ -1272,7 +1272,7 @@ instance.prototype.init_presets = function () {
 			actions: [
 				{
 					action: 'toggleMasterVolumeVisible',
-					
+
 				}
 			]
 		},
@@ -1328,38 +1328,38 @@ instance.prototype.init_presets = function () {
 				}
 			]
 		},
-        {
-            category: 'Global',
-            label: 'Toggle Master Dim',
-            bank: {
-                style: 'text',
-                text: 'Toggle\\nDim',
-                size: 'auto',
-                color: self.rgb(255, 255, 255),
-                bgcolor: self.rgb(0, 0, 100)
-            },
-            actions: [
-                {
-                    action: 'toggleDim',
-                }
-            ]
-        },
-        {
-            category: 'Global',
-            label: 'Toggle Master Mute',
-            bank: {
-                style: 'text',
-                text: 'Toggle\\nMute',
-                size: 'auto',
-                color: self.rgb(255, 255, 255),
-                bgcolor: self.rgb(0, 0, 100)
-            },
-            actions: [
-                {
-                    action: 'toggleMute',
-                }
-            ]
-        },
+				{
+						category: 'Global',
+						label: 'Toggle Master Dim',
+						bank: {
+								style: 'text',
+								text: 'Toggle\\nDim',
+								size: 'auto',
+								color: self.rgb(255, 255, 255),
+								bgcolor: self.rgb(0, 0, 100)
+						},
+						actions: [
+								{
+										action: 'toggleDim',
+								}
+						]
+				},
+				{
+						category: 'Global',
+						label: 'Toggle Master Mute',
+						bank: {
+								style: 'text',
+								text: 'Toggle\\nMute',
+								size: 'auto',
+								color: self.rgb(255, 255, 255),
+								bgcolor: self.rgb(0, 0, 100)
+						},
+						actions: [
+								{
+										action: 'toggleMute',
+								}
+						]
+				},
 //		{
 //			category: 'Edit',
 //			label: 'PostWait Dec 10 Sec',
@@ -1953,38 +1953,38 @@ instance.prototype.actions = function (system) {
 				choices: self.colorName
 			}]
 		},
-        'send_custom_osc': {
-            label: 'Send custom OSC message',
-            options: [{
-                type: 'textinput',
-                label: 'OSC Path',
-                id: 'path',
-                default: '/osc/path'
-            }]
-        },
-        'send_custom_osc_string': {
-            label: 'Send custom OSC message with argument',
-            options: [{
-                type: 'textinput',
-                label: 'OSC Path',
-                id: 'path',
-                default: '/osc/path'
-            },
-            {
-                type: 'textinput',
-                label: 'Value',
-                id: 'string',
-                default: "text"
-            }]
-        },
+				'send_custom_osc': {
+						label: 'Send custom OSC message',
+						options: [{
+								type: 'textinput',
+								label: 'OSC Path',
+								id: 'path',
+								default: '/osc/path'
+						}]
+				},
+				'send_custom_osc_string': {
+						label: 'Send custom OSC message with argument',
+						options: [{
+								type: 'textinput',
+								label: 'OSC Path',
+								id: 'path',
+								default: '/osc/path'
+						},
+						{
+								type: 'textinput',
+								label: 'Value',
+								id: 'string',
+								default: "text"
+						}]
+				},
 		'volume': {
 			label: 'Set Master Volume dB',
-            options: [{
-                type: 'textinput',
-                label: 'Volume in dB',
-                id: 'volume',
-                default: "0.0"
-            }]
+						options: [{
+								type: 'textinput',
+								label: 'Volume in dB',
+								id: 'volume',
+								default: "0.0"
+						}]
 		},
 //		'auditMode': {
 //			label: 'Audition Window',
@@ -2077,16 +2077,16 @@ instance.prototype.action = function (action) {
 			arg = null;
 			cmd = '/resume';
 			break;
-            
-        case 'send_custom_osc':
-            arg = null;
-            cmd = opt.path;
-            break;
-                       
-        case 'send_custom_osc_string':
-            arg = null;
-            cmd = opt.path + opt.string;
-            break;
+
+				case 'send_custom_osc':
+						arg = null;
+						cmd = opt.path;
+						break;
+
+				case 'send_custom_osc_string':
+						arg = null;
+						cmd = opt.path + opt.string;
+						break;
 
 		case 'timer_start':
 			arg = null;
@@ -2138,15 +2138,15 @@ instance.prototype.action = function (action) {
 			cmd = '/volumeStepDown';
 			break;
 
-        case 'toggleDim':
-            arg = null;
-            cmd = '/toggleDim';
-            break;
+				case 'toggleDim':
+						arg = null;
+						cmd = '/toggleDim';
+						break;
 
-        case 'toggleMute':
-            arg = null;
-            cmd = '/toggleMute';
-            break;
+				case 'toggleMute':
+						arg = null;
+						cmd = '/toggleMute';
+						break;
 
 //		case 'flagged':
 //			arg = {
