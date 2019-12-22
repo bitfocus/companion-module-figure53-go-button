@@ -1114,22 +1114,6 @@ instance.prototype.init_presets = function () {
 				}
 			]
 		},
-//		{
-//			category: 'CueList',
-//			label: 'Preview',
-//			bank: {
-//				style: 'text',
-//				text: 'Preview',
-//				size: '18',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 128, 0)
-//			},
-//			actions: [
-//				{
-//					action: 'preview',
-//				}
-//			]
-//		},
 		{
 			category: 'CueList',
 			label: 'Previous Cue',
@@ -1360,427 +1344,7 @@ instance.prototype.init_presets = function () {
 								}
 						]
 				},
-//		{
-//			category: 'Edit',
-//			label: 'PostWait Dec 10 Sec',
-//			bank: {
-//				style: 'text',
-//				text: 'PostWait\\nDecrease\\n10 sec',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'postwait_dec',
-//					options: {
-//						time: '10',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'PostWait Inc 10 Sec',
-//			bank: {
-//				style: 'text',
-//				text: 'PostWait\\nIncrease\\n10sec',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'postwait_inc',
-//					options: {
-//						time: '10',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'PostWait Inc 1 Sec',
-//			bank: {
-//				style: 'text',
-//				text: 'PostWait\\nIncrease\\n1 sec',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'postwait_inc',
-//					options: {
-//						time: '1',
-//					}
-//				}
-//			]
-//		},
-//
-//		{
-//			category: 'Edit',
-//			label: 'Duration Dec 1 sec',
-//			bank: {
-//				style: 'text',
-//				text: 'Duration\\nDecrease\\n1 sec',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'duration_dec',
-//					options: {
-//						time: '1',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Duration Dec 10sec',
-//			bank: {
-//				style: 'text',
-//				text: 'Duration\\nDecrease\\n10sec',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'duration_dec',
-//					options: {
-//						time: '10',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Duration inc 10sec',
-//			bank: {
-//				style: 'text',
-//				text: 'Duration\\nIncrease\\n10 sec',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'duration_inc',
-//					options: {
-//						time: '10',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Duration Inc 1sec',
-//			bank: {
-//				style: 'text',
-//				text: 'Duration\\nIncrease\\n1 sec',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'duration_inc',
-//					options: {
-//						time: '1',
-//					}
-//				}
-//			]
-//		},
-//
-//		{
-//			category: 'Edit',
-//			label: 'Continue Mode DNC',
-//			bank: {
-//				style: 'text',
-//				text: 'Do Not Continue',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'continue',
-//					options: {
-//						contId: '0',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Continue mode Auto continue',
-//			bank: {
-//				style: 'text',
-//				text: 'Auto Continue',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'continue',
-//					options: {
-//						contId: '1',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Continue mode Auto Follow',
-//			bank: {
-//				style: 'text',
-//				text: 'Auto Follow',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'continue',
-//					options: {
-//						contId: '2',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Disarm',
-//			bank: {
-//				style: 'text',
-//				text: 'Disarm',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'arm',
-//					options: {
-//						armId: '0',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Arm',
-//			bank: {
-//				style: 'text',
-//				text: 'Arm',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'arm',
-//					options: {
-//						armId: '1',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Autoload Enable',
-//			bank: {
-//				style: 'text',
-//				text: 'Autoload Enable',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'autoload',
-//					options: {
-//						autoId: '1',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Autoload Disable',
-//			bank: {
-//				style: 'text',
-//				text: 'Autoload Disable',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'autoload',
-//					options: {
-//						autoId: '0',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Flagged',
-//			bank: {
-//				style: 'text',
-//				text: 'Flagged',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'flagged',
-//					options: {
-//						flaggId: '1',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Unflagged',
-//			bank: {
-//				style: 'text',
-//				text: 'Unflagged',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 100)
-//			},
-//			actions: [
-//				{
-//					action: 'flagged',
-//					options: {
-//						flaggId: '0',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Cue Colour',
-//			bank: {
-//				style: 'text',
-//				text: 'Cue Colour',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 0)
-//			},
-//			actions: [
-//				{
-//					action: 'cueColor',
-//					options: {
-//						colorId: 'none',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Cue Colour',
-//			bank: {
-//				style: 'text',
-//				text: 'Cue Colour',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(255, 0, 0)
-//			},
-//			actions: [
-//				{
-//					action: 'cueColor',
-//					options: {
-//						colorId: 'red',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Cue Colour',
-//			bank: {
-//				style: 'text',
-//				text: 'Cue Colour',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(200, 200, 0)
-//			},
-//			actions: [
-//				{
-//					action: 'cueColor',
-//					options: {
-//						colorId: 'yellow',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Cue Colour',
-//			bank: {
-//				style: 'text',
-//				text: 'Cue Colour',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 200, 0)
-//			},
-//			actions: [
-//				{
-//					action: 'cueColor',
-//					options: {
-//						colorId: 'green',
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Cue Colour',
-//			bank: {
-//				style: 'text',
-//				text: 'Cue Colour',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(0, 0, 255)
-//			},
-//			actions: [
-//				{
-//					action: 'cueColor',
-//					options: {
-//						colorId: 'blue',
-//
-//					}
-//				}
-//			]
-//		},
-//		{
-//			category: 'Edit',
-//			label: 'Cue Colour',
-//			bank: {
-//				style: 'text',
-//				text: 'Cue Colour',
-//				size: '14',
-//				color: '16777215',
-//				bgcolor: self.rgb(255, 0, 255)
-//			},
-//			actions: [
-//				{
-//					action: 'cueColor',
-//					options: {
-//						colorId: 'purple',
-//					}
-//				}
-//			]
-//		},
+
 	];
 
 	self.setPresetDefinitions(presets);
@@ -1845,105 +1409,7 @@ instance.prototype.actions = function (system) {
 		'toggleMute': {
 			label: 'Toggle Master Mute',
 		},
-//		'prewait_inc': {
-//			label: 'Increase Prewait',
-//			options: [{
-//				type: 'textinput',
-//				label: 'Time in seconds',
-//				id: 'time',
-//				default: "1"
-//			}]
-//		},
-//		'postwait_dec': {
-//			label: 'Decrease Postwait',
-//			options: [{
-//				type: 'textinput',
-//				label: 'Time in seconds',
-//				id: 'time',
-//				default: "1"
-//			}]
-//		},
-//		'postwait_inc': {
-//			label: 'Increase Postwait',
-//			options: [{
-//				type: 'textinput',
-//				label: 'Time in seconds',
-//				id: 'time',
-//				default: "1"
-//			}]
-//		},
-//		'duration_dec': {
-//			label: 'Decrease Duration',
-//			options: [{
-//				type: 'textinput',
-//				label: 'Time in seconds',
-//				id: 'time',
-//				default: "1"
-//			}]
-//		},
-//		'duration_inc': {
-//			label: 'Increase Duration',
-//			options: [{
-//				type: 'textinput',
-//				label: 'Time in seconds',
-//				id: 'time',
-//				default: "1"
-//			}]
-//		},
-//		'continue': {
-//			label: 'Set Continue Mode',
-//			options: [{
-//				type: 'dropdown',
-//				label: 'Continue Mode',
-//				id: 'contId',
-//				choices: self.continueMode
-//			}]
-//		},
-//		'arm': {
-//			label: 'Arm/Disarm Cue',
-//			options: [{
-//				type: 'dropdown',
-//				label: 'Arm/Disarm',
-//				id: 'armId',
-//				choices: [{
-//					id: '0',
-//					label: 'Disarm'
-//				}, {
-//					id: '1',
-//					label: 'Arm'
-//				}]
-//			}]
-//		},
-//		'autoload': {
-//			label: 'Enable/Disable Cue Autoload ',
-//			options: [{
-//				type: 'dropdown',
-//				label: 'Autoload',
-//				id: 'autoId',
-//				choices: [{
-//					id: '0',
-//					label: 'Disable'
-//				}, {
-//					id: '1',
-//					label: 'Enable'
-//				}]
-//			}]
-//		},
-//		'flagged': {
-//			label: 'Flagged/Unflagged Cue',
-//			options: [{
-//				type: 'dropdown',
-//				label: 'Flagged',
-//				id: 'flaggId',
-//				choices: [{
-//					id: '0',
-//					label: 'Disable'
-//				}, {
-//					id: '1',
-//					label: 'Enable'
-//				}]
-//			}]
-//		},
+
 		'cueColor': {
 			label: 'Set Selected Cue Color',
 			options: [{
@@ -1953,30 +1419,6 @@ instance.prototype.actions = function (system) {
 				choices: self.colorName
 			}]
 		},
-				'send_custom_osc': {
-						label: 'Send custom OSC message',
-						options: [{
-								type: 'textinput',
-								label: 'OSC Path',
-								id: 'path',
-								default: '/osc/path'
-						}]
-				},
-				'send_custom_osc_string': {
-						label: 'Send custom OSC message with argument',
-						options: [{
-								type: 'textinput',
-								label: 'OSC Path',
-								id: 'path',
-								default: '/osc/path'
-						},
-						{
-								type: 'textinput',
-								label: 'Value',
-								id: 'string',
-								default: "text"
-						}]
-				},
 		'volume': {
 			label: 'Set Master Volume dB',
 						options: [{
@@ -1986,31 +1428,21 @@ instance.prototype.actions = function (system) {
 								default: "0.0"
 						}]
 		},
-//		'auditMode': {
-//			label: 'Audition Window',
-//			options: [{
-//				type: 	'dropdown',
-//				label: 	'Mode',
-//				id:		'onOff',
-//				choices: [{
-//					id: '1',
-//					label: 'On'
-//				}, {
-//					id: '0',
-//					label: 'Off'
-//				}]
-//			}]
-//		},
-		'go': 	    { label: 'GO' },
-		'pause':    { label: 'Pause' },
-		'stop':     { label: 'Stop' },
-		'panic':    { label: 'Panic' },
-		'reset':    { label: 'Reset' },
-		'previous': { label: 'Previous Cue' },
-		'next':     { label: 'Next Cue' },
-		'resume':   { label: 'Resume' },
-		'load':     { label: 'Load Cue' },
-		'preview':  { label: 'Preview'}
+
+		'go': 	        { label: 'GO' },
+		'pause':        { label: 'Pause' },
+		'stop':         { label: 'Stop' },
+		'panic':        { label: 'Panic' },
+		'reset':        { label: 'Reset' },
+		'previous':     { label: 'Previous Cue' },
+		'next':         { label: 'Next Cue' },
+		'resume':       { label: 'Resume' },
+		'load':         { label: 'Load Cue' },
+		'preview':      { label: 'Preview'},
+		'timer_toggle': { label: 'Timer start stop'},
+		'timer_reset':  { label: 'Timer reset'},
+		'oops':         { label: 'Oops'}
+
 		});
 };
 
@@ -2037,11 +1469,6 @@ instance.prototype.action = function (action) {
 			arg = null;
 			cmd = '/go';
 			break;
-
-//		case 'preview':
-//			arg = null;
-//			cmd = '/cue/selected/preview';
-//			break;
 
 		case 'pause':
 			arg = null;
@@ -2078,15 +1505,15 @@ instance.prototype.action = function (action) {
 			cmd = '/resume';
 			break;
 
-				case 'send_custom_osc':
-						arg = null;
-						cmd = opt.path;
-						break;
+		case 'send_custom_osc':
+			arg = null;
+			cmd = opt.path;
+			break;
 
-				case 'send_custom_osc_string':
-						arg = null;
-						cmd = opt.path + opt.string;
-						break;
+		case 'send_custom_osc_string':
+			arg = null;
+			cmd = opt.path + opt.string;
+			break;
 
 		case 'timer_start':
 			arg = null;
@@ -2138,46 +1565,15 @@ instance.prototype.action = function (action) {
 			cmd = '/volumeStepDown';
 			break;
 
-				case 'toggleDim':
-						arg = null;
-						cmd = '/toggleDim';
-						break;
+		case 'toggleDim':
+			arg = null;
+			cmd = '/toggleDim';
+			break;
 
-				case 'toggleMute':
-						arg = null;
-						cmd = '/toggleMute';
-						break;
-
-//		case 'flagged':
-//			arg = {
-//				type: "i",
-//				value: parseInt(opt.flaggId)
-//			};
-//			cmd = '/cue/selected/flagged';
-//			break;
-//
-//		case 'cueColor':
-//			arg = {
-//				type: "s",
-//				value: "" + opt.colorId
-//			};
-//			cmd = '/cue/selected/colorName';
-//			break;
-//		case 'showMode':
-//			arg = {
-//				type: "i",
-//				value: parseInt(opt.onOff)
-//			};
-//			cmd = '/showMode';
-//			break;
-//		case 'auditMode':
-//			arg = {
-//				type: "i",
-//				value: parseInt(opt.onOff)
-//			};
-//			cmd = '/auditionWindow';
-//			break;
-		// switch
+		case 'toggleMute':
+			arg = null;
+			cmd = '/toggleMute';
+			break;
 	}
 
 	if (arg == null) {
