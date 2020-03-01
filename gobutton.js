@@ -1000,9 +1000,9 @@ instance.prototype.config_fields = function () {
 		{
 			type: 'textinput',
 			id: 'passcode',
-			label: 'OSC Pascode',
+			label: 'OSC Passcode',
 			width: 12,
-			tooltip: 'The passcode to controll Go Button.\nLeave blank if not needed.'
+			tooltip: 'The passcode to control Go Button.\nLeave blank if not needed.'
 		},
 		{
 			type: 'textinput',
