@@ -1,0 +1,843 @@
+{
+	"c1": "This is a sample of Go Button OSC responses",
+	"c2": "It is not perfectly valid JSON, since there is more than",
+	"c3": "one 'list' but the JSON formatter works with it"
+}
+{
+	"address": "\/hit\/1\/valuesForKeys",
+	"status": "ok",
+	"data": {
+		"isBroken": false,
+		"isRunning": false,
+		"percentActionElapsed": 0,
+		"isPaused": false,
+		"colorName": "purple",
+		"parent": "A0F03BC5-62E7-472E-8904-D53CED1A0985",
+		"type": "Super",
+		"notes": "",
+		"number": "HIT1",
+		"uniqueID": "9E94E12F-177B-4B7F-8868-9A6E50682BB5",
+		"listName": "Applause",
+		"duration": 6.6858956916099777,
+		"actionElapsed": 0,
+		"autoLoad": true,
+		"isLoaded": false,
+		"armed": true
+	},
+	"show_id": "3B022634-931A-408A-8DFD-6B596CE0519C"
+}
+{
+	"address": "\/cue_id\/9652B4D0-E6C8-4E0F-97D9-3D944015A251\/valuesForKeys",
+	"status": "ok",
+	"data": {
+		"isBroken": false,
+		"isRunning": false,
+		"percentActionElapsed": 0,
+		"isPaused": false,
+		"colorName": "",
+		"parent": "95933A54-D02F-48CE-8F9F-98548EC79BAE",
+		"type": "Super",
+		"notes": "",
+		"goButtonText": "Go 1",
+		"number": "1",
+		"uniqueID": "9652B4D0-E6C8-4E0F-97D9-3D944015A251",
+		"listName": "House Music",
+		"duration": 2842.6187755102042,
+		"actionElapsed": 0,
+		"autoLoad": true,
+		"isLoaded": true,
+		"armed": true
+	},
+	"show_id": "3B022634-931A-408A-8DFD-6B596CE0519C"
+} {
+	"address": "\/show\/3B022634-931A-408A-8DFD-6B596CE0519C\/cueLists",
+	"status": "ok",
+	"data": [
+		{
+			"number": "",
+			"uniqueID": "95933A54-D02F-48CE-8F9F-98548EC79BAE",
+			"cues": [
+				{
+					"number": "1",
+					"uniqueID": "9652B4D0-E6C8-4E0F-97D9-3D944015A251",
+					"cues": [
+						{
+							"number": "..1.1",
+							"uniqueID": "65CE8B96-7E7C-43E2-95F9-508AA24FDE6A",
+							"cues": [],
+							"listName": "House Music - Wonderful Movie Soundtracks 2",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "House Music - Wonderful Movie Soundtracks 2",
+							"armed": true
+						},
+						{
+							"number": "..1.2",
+							"uniqueID": "3E7ADAB9-AD4F-47C0-86B6-2F3E8EE8E5F9",
+							"cues": [
+								{
+									"number": "....1.21",
+									"uniqueID": "7F91A010-F3B5-4FE2-9C8D-DA4E35993141",
+									"cues": [],
+									"listName": "go to: '..1.4 · fadeOut'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '..1.4 · fadeOut'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						},
+						{
+							"number": "..1.3",
+							"uniqueID": "7520C9DF-E16D-47C8-A542-6684E0AC4CC7",
+							"cues": [
+								{
+									"number": "..1.31",
+									"uniqueID": "CDAD4EAC-3AC4-4C96-B735-2CB3A1277A7D",
+									"cues": [],
+									"listName": "fade out: '..1.1 · House Music - Wonderful Movie Soundtracks 2'",
+									"type": "Fade",
+									"colorName": "none",
+									"name": "fade out: '..1.1 · House Music - Wonderful Movie Soundtracks 2'",
+									"armed": true
+								},
+								{
+									"number": "....1.32",
+									"uniqueID": "29542AB9-FF9D-4372-A85C-B85D8CCD19F7",
+									"cues": [],
+									"listName": "go to: '3 · School Bell'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '3 · School Bell'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: end of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: end of cue",
+							"armed": true
+						},
+						{
+							"number": "..1.4",
+							"uniqueID": "300202D2-E090-4AFB-8EF4-9E336CBCDBD3",
+							"cues": [
+								{
+									"number": "....1.41",
+									"uniqueID": "B4A970D2-9BEA-4197-BE99-17730FBADECA",
+									"cues": [],
+									"listName": "fade out: '..1.1 · House Music - Wonderful Movie Soundtracks 2'",
+									"type": "Fade",
+									"colorName": "none",
+									"name": "fade out: '..1.1 · House Music - Wonderful Movie Soundtracks 2'",
+									"armed": true
+								},
+								{
+									"number": "....1.42",
+									"uniqueID": "B9D94A89-7109-449E-89A1-4C3C2C57A5B8",
+									"cues": [],
+									"listName": "go to: '3 · School Bell'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '3 · School Bell'",
+									"armed": true
+								},
+								{
+									"number": "....1.43",
+									"uniqueID": "03AA48B2-ACE7-4B6B-8EB5-9479A0DB68DD",
+									"cues": [],
+									"listName": "stop: '..1.3 · Default actions: end of cue'",
+									"type": "Stop",
+									"colorName": "none",
+									"name": "stop: '..1.3 · Default actions: end of cue'",
+									"armed": true
+								}
+							],
+							"listName": "fadeOut",
+							"type": "Group",
+							"colorName": "none",
+							"name": "fadeOut",
+							"armed": true
+						}
+					],
+					"listName": "House Music",
+					"type": "Group",
+					"colorName": "",
+					"name": "House Music",
+					"armed": true
+				},
+				{
+					"number": "2",
+					"uniqueID": "B0BB99FE-D2A1-48D4-B62E-572C9BFE5296",
+					"cues": [
+						{
+							"number": "..2.1",
+							"uniqueID": "473F31E2-9239-4359-B936-D349D7DFF36B",
+							"cues": [],
+							"listName": "Main Auditorium General Pre-Show",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "Main Auditorium General Pre-Show",
+							"armed": true
+						},
+						{
+							"number": "..2.2",
+							"uniqueID": "2D948837-408F-4BB3-909F-2A3AE864EA1B",
+							"cues": [
+								{
+									"number": "....2.21",
+									"uniqueID": "BBE36AD5-8B9C-4987-9F94-084D5ABD0FB1",
+									"cues": [],
+									"listName": "go to: '3 · School Bell'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '3 · School Bell'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						}
+					],
+					"listName": "Main Auditorium General Pre-Show",
+					"type": "Group",
+					"colorName": "",
+					"name": "Main Auditorium General Pre-Show",
+					"armed": true
+				},
+				{
+					"number": "3",
+					"uniqueID": "C7B699F4-15F2-449B-83FE-AFA02DB53124",
+					"cues": [
+						{
+							"number": "..3.1",
+							"uniqueID": "98737DE0-E661-4F28-88F7-41CEDDF181C4",
+							"cues": [],
+							"listName": "School Bell 1",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "School Bell 1",
+							"armed": true
+						},
+						{
+							"number": "..3.2",
+							"uniqueID": "6C26BEB5-EFEF-4CAF-B571-E197693AC7E6",
+							"cues": [
+								{
+									"number": "....3.21",
+									"uniqueID": "614B3012-05AC-4B0F-9BA6-2B539D502FBF",
+									"cues": [],
+									"listName": "go to: '4 · 60's Telephone'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '4 · 60's Telephone'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						}
+					],
+					"listName": "School Bell",
+					"type": "Group",
+					"colorName": "",
+					"name": "School Bell",
+					"armed": true
+				},
+				{
+					"number": "4",
+					"uniqueID": "0C28642D-A22B-40BF-A0FD-45EF552124E3",
+					"cues": [
+						{
+							"number": "..4.1",
+							"uniqueID": "F71FF409-1038-4ABA-8DEE-4AB541F6E97F",
+							"cues": [],
+							"listName": "60's Telephone",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "60's Telephone",
+							"armed": true
+						},
+						{
+							"number": "..4.2",
+							"uniqueID": "E320C74C-50C0-49DB-BC4E-53A0391B6074",
+							"cues": [
+								{
+									"number": "....4.21",
+									"uniqueID": "BBD4511F-2981-447C-ADCE-5C38059C649B",
+									"cues": [],
+									"listName": "go to: '..4.3 · stop'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '..4.3 · stop'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						},
+						{
+							"number": "..4.3",
+							"uniqueID": "B44A09F4-F120-4DD0-9A93-2F55ECE720DB",
+							"cues": [
+								{
+									"number": "....4.31",
+									"uniqueID": "02308B9D-9141-4C4D-88BC-7675B740A8B2",
+									"cues": [],
+									"listName": "stop: '..4.1 · 60's Telephone'",
+									"type": "Stop",
+									"colorName": "none",
+									"name": "stop: '..4.1 · 60's Telephone'",
+									"armed": true
+								}
+							],
+							"listName": "stop",
+							"type": "Group",
+							"colorName": "none",
+							"name": "stop",
+							"armed": true
+						}
+					],
+					"listName": "60's Telephone",
+					"type": "Group",
+					"colorName": "",
+					"name": "60's Telephone",
+					"armed": true
+				},
+				{
+					"number": "5",
+					"uniqueID": "BFC6BFB1-646E-40D2-BAC2-25006567E230",
+					"cues": [
+						{
+							"number": "..5.1",
+							"uniqueID": "0FED21A3-D5B3-41C7-8BB9-2743A854A431",
+							"cues": [],
+							"listName": "60's Telephone",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "60's Telephone",
+							"armed": true
+						},
+						{
+							"number": "..5.2",
+							"uniqueID": "9750BA27-C20B-464B-8721-58157F7D6885",
+							"cues": [
+								{
+									"number": "....5.21",
+									"uniqueID": "400CCF8D-4263-424A-AAD5-1C3369A43503",
+									"cues": [],
+									"listName": "go to: '..5.3 · stop'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '..5.3 · stop'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						},
+						{
+							"number": "..5.3",
+							"uniqueID": "AC335AF3-78F5-4D04-A510-B4B61012968B",
+							"cues": [
+								{
+									"number": "....5.31",
+									"uniqueID": "0808F3BD-5B93-4CD3-9DC7-35C841B77C53",
+									"cues": [],
+									"listName": "stop: '..5.1 · 60's Telephone'",
+									"type": "Stop",
+									"colorName": "none",
+									"name": "stop: '..5.1 · 60's Telephone'",
+									"armed": true
+								}
+							],
+							"listName": "stop",
+							"type": "Group",
+							"colorName": "none",
+							"name": "stop",
+							"armed": true
+						}
+					],
+					"listName": "60's Telephone",
+					"type": "Group",
+					"colorName": "",
+					"name": "60's Telephone",
+					"armed": true
+				},
+				{
+					"number": "6",
+					"uniqueID": "C9649370-52C4-4A55-B511-72AE246D8F66",
+					"cues": [
+						{
+							"number": "..6.1",
+							"uniqueID": "7C92EC31-6674-4FB2-A947-8A8E56AD9B8D",
+							"cues": [],
+							"listName": "60's Telephone",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "60's Telephone",
+							"armed": true
+						},
+						{
+							"number": "..6.2",
+							"uniqueID": "35A8BFFD-A9A4-4D47-BD44-A6EC0F71D953",
+							"cues": [
+								{
+									"number": "....6.21",
+									"uniqueID": "5D32EDFA-F7BD-41EE-A42C-AD1A85762100",
+									"cues": [],
+									"listName": "go to: '..6.3 · stop'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '..6.3 · stop'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						},
+						{
+							"number": "..6.3",
+							"uniqueID": "42FE20C4-B1CB-432E-B89A-C55ED108E545",
+							"cues": [
+								{
+									"number": "....6.31",
+									"uniqueID": "30A7E756-4D8A-4598-98A1-29E036C12624",
+									"cues": [],
+									"listName": "stop: '..6.1 · 60's Telephone'",
+									"type": "Stop",
+									"colorName": "none",
+									"name": "stop: '..6.1 · 60's Telephone'",
+									"armed": true
+								}
+							],
+							"listName": "stop",
+							"type": "Group",
+							"colorName": "none",
+							"name": "stop",
+							"armed": true
+						}
+					],
+					"listName": "60's Telephone",
+					"type": "Group",
+					"colorName": "",
+					"name": "60's Telephone",
+					"armed": true
+				},
+				{
+					"number": "7",
+					"uniqueID": "6A8E2E10-B30C-4DB8-ABB2-10DDE8957020",
+					"cues": [
+						{
+							"number": "..7.1",
+							"uniqueID": "422F3CA5-A5BC-4333-830B-B95EE5CCE151",
+							"cues": [],
+							"listName": "School Bell 1",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "School Bell 1",
+							"armed": true
+						},
+						{
+							"number": "..7.2",
+							"uniqueID": "7B9E29BD-61E8-4B5C-89EA-A148BD058C50",
+							"cues": [
+								{
+									"number": "....7.21",
+									"uniqueID": "A3800D0C-39B5-4BDC-AE43-676FE7E0284E",
+									"cues": [],
+									"listName": "go to: '8 · House Music'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '8 · House Music'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						}
+					],
+					"listName": "School Bell",
+					"type": "Group",
+					"colorName": "",
+					"name": "School Bell",
+					"armed": true
+				},
+				{
+					"number": "8",
+					"uniqueID": "AA6E33D0-ACC6-4A72-99D2-FF39462E36E8",
+					"cues": [
+						{
+							"number": "..8.1",
+							"uniqueID": "6C29279F-D492-4F37-9FF3-38747466653A",
+							"cues": [],
+							"listName": "House Music - Wonderful Movie Soundtracks 2",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "House Music - Wonderful Movie Soundtracks 2",
+							"armed": true
+						},
+						{
+							"number": "..8.2",
+							"uniqueID": "4329A51D-0188-4A72-AE38-D492F5AF197E",
+							"cues": [
+								{
+									"number": "....8.21",
+									"uniqueID": "5E5C9076-B5A1-463D-968C-7AF344298F78",
+									"cues": [],
+									"listName": "go to: '..8.3 · fadeOut'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '..8.3 · fadeOut'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						},
+						{
+							"number": "..8.3",
+							"uniqueID": "6C6FFB11-AE56-4C1A-B35A-8EB7B61777C0",
+							"cues": [
+								{
+									"number": "....8.31",
+									"uniqueID": "76F61CFD-AD4E-431C-B2BD-AEFBAF19D0D1",
+									"cues": [],
+									"listName": "fade out: '..8.1 · House Music - Wonderful Movie Soundtracks 2'",
+									"type": "Fade",
+									"colorName": "none",
+									"name": "fade out: '..8.1 · House Music - Wonderful Movie Soundtracks 2'",
+									"armed": true
+								},
+								{
+									"number": "....8.32",
+									"uniqueID": "4D5F3C26-5948-49C6-9D9B-6882D71E356B",
+									"cues": [],
+									"listName": "go to: '9 · 60's Telephone'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '9 · 60's Telephone'",
+									"armed": true
+								}
+							],
+							"listName": "fadeOut",
+							"type": "Group",
+							"colorName": "none",
+							"name": "fadeOut",
+							"armed": true
+						}
+					],
+					"listName": "House Music",
+					"type": "Group",
+					"colorName": "",
+					"name": "House Music",
+					"armed": true
+				},
+				{
+					"number": "9",
+					"uniqueID": "B258A9AA-DB5D-437A-8BC4-37AD7AD94155",
+					"cues": [
+						{
+							"number": "..9.1",
+							"uniqueID": "90588B58-890D-4691-B82A-7FC2F9FC3709",
+							"cues": [],
+							"listName": "60's Telephone",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "60's Telephone",
+							"armed": true
+						},
+						{
+							"number": "..9.2",
+							"uniqueID": "42EDF071-3FCE-4C3B-A540-0D78DB12DE32",
+							"cues": [
+								{
+									"number": "....9.21",
+									"uniqueID": "322DF6D2-64E5-4AED-AAFD-6841A838CAAE",
+									"cues": [],
+									"listName": "go to: '..9.3 · stop'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '..9.3 · stop'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						},
+						{
+							"number": "..9.3",
+							"uniqueID": "B704F38C-F441-45B8-A3FC-9B5849676C29",
+							"cues": [
+								{
+									"number": "....9.31",
+									"uniqueID": "D2EB45B3-9978-4E82-9F4D-1A8A8DF5E855",
+									"cues": [],
+									"listName": "stop: '..9.1 · 60's Telephone'",
+									"type": "Stop",
+									"colorName": "none",
+									"name": "stop: '..9.1 · 60's Telephone'",
+									"armed": true
+								}
+							],
+							"listName": "stop",
+							"type": "Group",
+							"colorName": "none",
+							"name": "stop",
+							"armed": true
+						}
+					],
+					"listName": "60's Telephone",
+					"type": "Group",
+					"colorName": "",
+					"name": "60's Telephone",
+					"armed": true
+				},
+				{
+					"number": "10",
+					"uniqueID": "7460053A-3D5A-4F32-ADCE-68C85B4E0FF3",
+					"cues": [
+						{
+							"number": "..10.1",
+							"uniqueID": "FC011537-627A-4E93-8C6B-F8D9D1BAC9A9",
+							"cues": [],
+							"listName": "VO",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "VO",
+							"armed": true
+						},
+						{
+							"number": "..10.2",
+							"uniqueID": "EE3585DD-404D-4D79-B0AD-C0380F52F336",
+							"cues": [
+								{
+									"number": "....10.21",
+									"uniqueID": "D9B8327F-E407-4DCD-94B1-190CB6DE8C3F",
+									"cues": [],
+									"listName": "go to: '11 · House Music'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '11 · House Music'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						}
+					],
+					"listName": "V. O.",
+					"type": "Group",
+					"colorName": "",
+					"name": "V. O.",
+					"armed": true
+				},
+				{
+					"number": "11",
+					"uniqueID": "1A117F45-A812-4BB7-95D1-980E7E6A2095",
+					"cues": [
+						{
+							"number": "..11.1",
+							"uniqueID": "B20205A0-4141-4FBB-9E48-6E1D458410E1",
+							"cues": [],
+							"listName": "House Music - Wonderful Movie Soundtracks 2",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "House Music - Wonderful Movie Soundtracks 2",
+							"armed": true
+						},
+						{
+							"number": "..11.2",
+							"uniqueID": "26DF4C31-7D90-4996-858C-F23E68CCC248",
+							"cues": [
+								{
+									"number": "....11.21",
+									"uniqueID": "F040ED1C-17E2-43C7-A47D-E32F11065515",
+									"cues": [],
+									"listName": "go to: '..11.3 · fadeOut'",
+									"type": "GoTo",
+									"colorName": "none",
+									"name": "go to: '..11.3 · fadeOut'",
+									"armed": true
+								}
+							],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						},
+						{
+							"number": "..11.3",
+							"uniqueID": "BA43FF87-97AF-4DEC-B84F-777405B8C433",
+							"cues": [
+								{
+									"number": "....11.31",
+									"uniqueID": "D23849BB-D05D-4243-A39B-C24CF0FD5055",
+									"cues": [],
+									"listName": "fade out: '..11.1 · House Music - Wonderful Movie Soundtracks 2'",
+									"type": "Fade",
+									"colorName": "none",
+									"name": "fade out: '..11.1 · House Music - Wonderful Movie Soundtracks 2'",
+									"armed": true
+								}
+							],
+							"listName": "fadeOut",
+							"type": "Group",
+							"colorName": "none",
+							"name": "fadeOut",
+							"armed": true
+						}
+					],
+					"listName": "House Music",
+					"type": "Group",
+					"colorName": "",
+					"name": "House Music",
+					"armed": true
+				}
+			],
+			"listName": "Main Cue List",
+			"type": "Cue List",
+			"colorName": "none",
+			"name": "Main Cue List",
+			"armed": true
+		},
+		{
+			"number": "HIT",
+			"uniqueID": "A0F03BC5-62E7-472E-8904-D53CED1A0985",
+			"cues": [
+				{
+					"number": "HIT1",
+					"uniqueID": "9E94E12F-177B-4B7F-8868-9A6E50682BB5",
+					"cues": [
+						{
+							"number": "..HIT1.1",
+							"uniqueID": "20D176CB-4FBF-450B-9E86-CE7D407630BF",
+							"cues": [],
+							"listName": "Applause",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "Applause",
+							"armed": true
+						},
+						{
+							"number": "..HIT1.2",
+							"uniqueID": "5E367D00-75D9-4DB8-B129-82F0FE37D4B3",
+							"cues": [],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						}
+					],
+					"listName": "Applause",
+					"type": "Group",
+					"colorName": "purple",
+					"name": "Applause",
+					"armed": true
+				},
+				{
+					"number": "HIT2",
+					"uniqueID": "CA5E56BD-ACE2-437A-8904-F82AC49F708D",
+					"cues": [
+						{
+							"number": "..HIT2.1",
+							"uniqueID": "F9B472A4-8351-4A46-95C4-73DB3913941E",
+							"cues": [],
+							"listName": "Rimshot",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "Rimshot",
+							"armed": true
+						},
+						{
+							"number": "..HIT2.2",
+							"uniqueID": "49C8A3B3-4CA9-4428-AA00-46A4ADAFE04A",
+							"cues": [],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						}
+					],
+					"listName": "Rimshot",
+					"type": "Group",
+					"colorName": "orange",
+					"name": "Rimshot",
+					"armed": true
+				},
+				{
+					"number": "HIT3",
+					"uniqueID": "BB255C7E-BE42-4824-8870-E6C4637A51EA",
+					"cues": [
+						{
+							"number": "..HIT3.1",
+							"uniqueID": "C427387D-7EB3-4F92-B4AF-FDBFF4904E55",
+							"cues": [],
+							"listName": "Sad Trombone",
+							"type": "Audio",
+							"colorName": "none",
+							"name": "Sad Trombone",
+							"armed": true
+						},
+						{
+							"number": "..HIT3.2",
+							"uniqueID": "80827CDA-AB7E-43D6-873F-AC2FF2B27BF2",
+							"cues": [],
+							"listName": "Default actions: start of cue",
+							"type": "Group",
+							"colorName": "none",
+							"name": "Default actions: start of cue",
+							"armed": true
+						}
+					],
+					"listName": "Sad Trombone",
+					"type": "Group",
+					"colorName": "blue",
+					"name": "Sad Trombone",
+					"armed": true
+				}
+			],
+			"listName": "Hits Cue List",
+			"type": "Cue List",
+			"colorName": "none",
+			"name": "Hits Cue List",
+			"armed": true
+		}
+	],
+	"show_id": "3B022634-931A-408A-8DFD-6B596CE0519C"
+}
