@@ -169,7 +169,6 @@ instance.prototype.resetVars = function (doUpdate) {
 	self.showCues = {};
 	self.cueColors = {};
 	self.cueOrder = [];
-	self.cueList = {};
 	self.requestedCues = {};
 	self.lastRunID = '-' + self.lastRunID;
 	self.showName = 'N/A';
@@ -190,7 +189,7 @@ instance.prototype.updateNextCue = function () {
 	self.setVariable('n_name', nc.qName);
 	self.setVariable('n_num', nc.qNumber);
 	self.setVariable('n_notes', nc.Notes);
-	self.setVariable('n_text', nc.gbText == '' ? "GO" : nc.gbText);
+	self.setVariable('g_text', nc.gbText == '' ? "GO" : nc.gbText);
 	self.setVariable('n_stat', nc.isBroken ? self.QSTATUS_CHAR.broken :
 							nc.isRunning ? self.QSTATUS_CHAR.running :
 							nc.isPaused ? self.QSTATUS_CHAR.paused :
@@ -276,6 +275,11 @@ instance.prototype.updateRunning = function () {
 	self.setVariable('r_mm', mm);
 	self.setVariable('r_ss', ss);
 	self.setVariable('r_left',ft);
+	if (rc.isPaused) {
+		self.setVariable('g_text',rc.gbText);
+	} else if (self.nextCue != '') {
+		self.setVariable('g_text',self.showCues[self.nextCue].gbText);
+	}
 	self.checkFeedbacks('run_bg');
 };
 
@@ -568,7 +572,7 @@ instance.prototype.init_osc = function () {
 instance.prototype.updateCues = function (jCue, stat, ql) {
 	var self = this;
 	// list of useful cue types we're interested in
-	var qTypes = ['audio', 'fade', 'group', 'start', 'stop', 'goto', 'cue list', 'super'];
+	var qTypes = ['audio', 'fade', 'group', 'start', 'stop', 'goto'];
 	var q = {};
 
 	if (Array.isArray(jCue)) {
@@ -581,42 +585,26 @@ instance.prototype.updateCues = function (jCue, stat, ql) {
 			if (ql) {
 				q.qList = ql;
 			}
-			if (stat == 'u') {
-				if (!self.cueList[ql].includes(q.uniqueID)) {
-					self.cueList[ql].push(q.uniqueID);
-				}
+			if (q.uniqueID in idCount) {
+				idCount[q.uniqueID] += 1;
+				dupIds = true;
 			} else {
-				if (q.uniqueID in idCount) {
-					idCount[q.uniqueID] += 1;
-					dupIds = true;
-				} else {
-					idCount[q.uniqueID] = 1;
-				}
+				idCount[q.uniqueID] = 1;
+			}
 
-				if (qTypes.includes(q.qType)) {
-					self.updateQVars(q);
-					self.showCues[q.uniqueID] = q;
-				}
-				if (stat == 'l') {
-					self.cueOrder[i] = q.uniqueID;
-					if (ql) {
-						self.cueList[ql].push(q.uniqueID);
-					}
-				}
+			if (qTypes.includes(q.qType)) {
+				self.updateQVars(q);
+				self.showCues[q.uniqueID] = q;
 			}
 			i += 1;
 		}
-		// self.checkFeedbacks('q_bg');
+		// Hit cues have background
+		self.checkFeedbacks('q_bg');
 	} else {
 		q = new Cue(jCue, self);
 		if (qTypes.includes(q.qType)) {
 			self.updateQVars(q);
 			self.showCues[q.uniqueID] = q;
-			if ('cue list' == q.qType) {
-				if (!self.cueList[q.uniqueID]) {
-					self.cueList[q.uniqueID] = [];
-				}
-			}
 			self.updatePlaying();
 			if (q.uniqueID == self.nextCue) {
 				self.updateNextCue();
@@ -654,9 +642,6 @@ instance.prototype.updatePlaying = function () {
 			if (!self.groupCueTypes.includes(cues[cue].qType)) {
 				runningCues.push([cue, cues[cue].startedAt]);
 			}
-			// if ('group' == cues[cue].qType) {
-			// 	hasGroup = true;
-			// }
 		}
 	});
 
@@ -668,11 +653,7 @@ instance.prototype.updatePlaying = function () {
 		self.runningCue = new Cue();
 	} else {
 		i = 0;
-		// if (hasGroup) {
-		// 	while ('group' != cues[runningCues[i][0]].qType && i < runningCues.length) {
-		// 		i += 1;
-		// 	}
-		// }
+
 		if (i < runningCues.length) {
 			self.runningCue = cues[runningCues[i][0]];
 		}
@@ -699,12 +680,6 @@ instance.prototype.readUpdate = function (message) {
 	if (ma.match(/playbackPosition$/)) {
 		if (message.args.length > 0) {
 			var oa = message.args[0].value;
-			var cl = ma.substr(58,36);
-			// insert this id into cuelist just in case
-			// so the playhead check will won't error
-			if (!self.cueList[cl].includes(oa)) {
-				self.cueList[cl].push(oa);
-			}
 			if (oa !== self.nextCue) {
 				// playhead changed
 				self.nextCue = oa;
@@ -805,8 +780,7 @@ instance.prototype.readReply = function (message) {
 			i = 0;
 			while (i < j.data.length) {
 				q = j.data[i];
-				self.updateCues(q, 'l');
-				self.updateCues(q.cues,'l',q.uniqueID);
+				self.updateCues(q.cues);
 				i++;
 			}
 			self.sendOSC("/runningOrPausedCues", []);
@@ -898,28 +872,6 @@ instance.prototype.config_fields = function () {
 		},
 
 	];
-	if (Object.keys(self.cueList).length>0) {
-		var clist = {
-			type: 'dropdown',
-			id: 'cuelist',
-			label: 'Specific Cue List',
-			tooltip: 'Select a specific Cue List for Play Head Variables',
-			width: 12,
-			default: 'default',
-			choices: [ {
-				id: 'default',
-				label: 'Default Cue List'
-			} ]
-		};
-		var c;
-		for (c in self.cueList) {
-			clist.choices.push({
-				id: c,
-				label: self.showCues[c].qName
-			});
-		}
-		configs.push( clist );
-	}
 	return configs;
 };
 
@@ -953,10 +905,6 @@ instance.prototype.destroy = function () {
 instance.prototype.actions = function (system) {
 	this.setActions(actions.setActions());
 };
-
-instance.prototype.cueListRunActions = [
-	'go','goto','next','panic','previous','reset','stop','togglePause','oops','hitGo','hitPause','hitStop'
-];
 
 instance.prototype.action = function (action) {
 	var self = this;

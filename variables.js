@@ -34,8 +34,8 @@ module.exports = {
 				name:  'n_stat'
 			},
 			{
-				label: 'Playhead GoButton Text',
-				name:  'n_text'
+				label: 'GoButton Text',
+				name:  'g_text'
 			},
 			{
 				label: 'Running Cue UniqueID',

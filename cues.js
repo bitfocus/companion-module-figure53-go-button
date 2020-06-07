@@ -32,7 +32,8 @@ function JSONtoCue(newCue, j, i) {
 	newCue.qName = j.listName;
 	newCue.qNumber = j.number;
 	newCue.qColorName = j.colorName;
-	newCue.qType = j.type.toLowerCase();
+	// Gobutton sometimes returns 'super' instead of 'group' for the primary (listed) cues
+	newCue.qType = j.type.toLowerCase() == 'super' ? 'group' : j.type.toLowerCase();
 	newCue.isRunning = j.isRunning;
 	newCue.isLoaded = j.isLoaded;
 	newCue.isBroken = j.isBroken;
