@@ -45,9 +45,9 @@ Variable | Description
 -----------------|---------------
 **$(INSTANCENAME:q_ver)** | Version of Go Button attached
 **$(INSTANCENAME:s_name)** | Name of the Go Button Show
+**$(INSTANCENAME:g_text)** | Go Button 'Text'
 **$(INSTANCENAME:n_id)** | UniqueID of the current Playhead Cue
 **$(INSTANCENAME:n_name)** | Name of the current Playhead Cue or [none]
-**$(INSTANCENAME:n_text)** | Go Button 'Text for the current Playhead Cue
 **$(INSTANCENAME:n_num)** | Number of the current Playhead Cue
 **$(INSTANCENAME:n_notes)** | First 20 characters of the Note on the Playhead Cue
 **$(INSTANCENAME:n_stat)** | Playhead Cue Status: "✕" if broken, "⏽" if loaded, "⏵" if running, "⏸" if paused, otherwise "·"
