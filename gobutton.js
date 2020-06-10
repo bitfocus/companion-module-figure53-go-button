@@ -184,6 +184,9 @@ instance.prototype.updateNextCue = function () {
 	if (!nc) {
 		nc = new Cue();
 	}
+	if (nc.qType != 'super') {
+		nc = nc
+	}
 
 	self.setVariable('n_id', nc.uniqueID);
 	self.setVariable('n_name', nc.qName);
@@ -339,9 +342,9 @@ instance.prototype.sendOSC = function (node, arg) {
 			host = self.config.host;
 		}
 		if (self.config.passcode !== undefined && self.config.passcode !== "") {
-			self.system.emit('osc_send', host, 53000, "/connect", [self.config.passcode]);
+			self.system.emit('osc_send', host, self.config.port, "/connect", [self.config.passcode]);
 		}
-		self.system.emit('osc_send',host, 53000, node, arg);
+		self.system.emit('osc_send',host, self.config.port, node, arg);
 	} else if (self.ready) {
 		self.qSocket.send({
 			address: node,
@@ -572,7 +575,7 @@ instance.prototype.init_osc = function () {
 instance.prototype.updateCues = function (jCue, stat, ql) {
 	var self = this;
 	// list of useful cue types we're interested in
-	var qTypes = ['audio', 'fade', 'group', 'start', 'stop', 'goto'];
+	var qTypes = ['audio', 'fade', 'group', 'start', 'stop', 'goto','super'];
 	var q = {};
 
 	if (Array.isArray(jCue)) {
@@ -631,7 +634,7 @@ instance.prototype.updatePlaying = function () {
 	}
 
 	var self = this;
-	var hasGroup = false;
+	var hasSuper = false;
 	var i;
 	var cues = self.showCues;
 	var lastRun = qState(self.runningCue);
@@ -641,6 +644,9 @@ instance.prototype.updatePlaying = function () {
 		if ((cues[cue].duration > 0 && cues[cue].isRunning || cues[cue].isPaused)) {
 			if (!self.groupCueTypes.includes(cues[cue].qType)) {
 				runningCues.push([cue, cues[cue].startedAt]);
+				if (cues[cue].qType == 'super') {
+					hasSuper = true;
+				}
 			}
 		}
 	});
@@ -653,6 +659,12 @@ instance.prototype.updatePlaying = function () {
 		self.runningCue = new Cue();
 	} else {
 		i = 0;
+
+		if (hasSuper) {
+			while (cues[runningCues[i][0]].qType != "super" && i < runningCues.length) {
+				i += 1;
+			}
+		}
 
 		if (i < runningCues.length) {
 			self.runningCue = cues[runningCues[i][0]];
