@@ -1,14 +1,23 @@
-var rgb = require('../../image').rgb;
+function rgb(r,g,b) {
+	return (
+		((r & 0xff) << 16) |
+		((g & 0xff) << 8) |
+		(b & 0xff)
+	);
+};
 
 module.exports = {
-	colorRGB: {
-		none:			rgb(16, 16, 16),
-		default:		rgb(16, 16, 16),
-		red:			rgb(160, 0, 0),
-		orange:			rgb(255, 100, 0),
-		green:			rgb(0, 160, 0),
-		blue:			rgb(0, 0, 160),
-		purple:			rgb(80, 0, 80)
+
+	colorRGB: function() {
+		return {
+			none:			this.rgb(16, 16, 16),
+			default:		this.rgb(16, 16, 16),
+			red:			this.rgb(160, 0, 0),
+			orange:			this.rgb(255, 100, 0),
+			green:			this.rgb(0, 160, 0),
+			blue:			this.rgb(0, 0, 160),
+			purple:			this.rgb(80, 0, 80)
+		}
 	},
 
 	colorName: [

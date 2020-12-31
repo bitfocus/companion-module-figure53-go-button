@@ -1,4 +1,4 @@
-var rgb = require('../../image').rgb;
+// var rgb = require('../../image').rgb;
 
 module.exports = {
 

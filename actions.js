@@ -78,40 +78,6 @@ module.exports = {
 			'timer_stop':		{ label: 'Timer Stop' },
 			'timer_reset':		{ label: 'Timer Reset' },
 			'timer_toggle':		{ label: 'Timer Start/Stop' }
-			// 'cueColor': {
-			// 	label: 'Set Selected Cue Color',
-			// 	options: [{
-			// 		type: 'dropdown',
-			// 		label: 'Color',
-			// 		id: 'colorId',
-			// 		choices: self.colorName
-			// 	}]
-			// },
-			// // 'send_unsupported_command': {
-			// 	label: 'Send a currently unsupported command',
-			// 	options: [{
-			// 		type: 'textinput',
-			// 		label: 'OSC Path',
-			// 		id: 'path',
-			// 		default: '/osc/path'
-			// 	}]
-			// },
-			// 'send_unsupported_command_string': {
-			// 	label: 'Send a currently unsupported command with argument',
-			// 	options: [{
-			// 		type: 'textinput',
-			// 		label: 'OSC Path',
-			// 		id: 'path',
-			// 		default: '/osc/path'
-			// 	},
-			// 	{
-			// 		type: 'textinput',
-			// 		label: 'Value',
-			// 		id: 'string',
-			// 		default: "text"
-			// 	}]
-			// },
-
 		};
 		return (actions);
 	}

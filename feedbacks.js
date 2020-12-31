@@ -1,8 +1,9 @@
-rgb = require('../../image').rgb;
 
 module.exports = {
 
 	setFeedbacks: function(i) {
+
+		var self = this;
 
 		var feedbacks = {
 			fs_bg: {
@@ -18,7 +19,7 @@ module.exports = {
 					type: 'colorpicker',
 					label: 'Background color',
 					id: 'bg',
-					default: rgb(0, 64, 128)
+					default: self.rgb(0, 64, 128)
 				}],
 				callback: function(feedback, bank) {
 					var ret = {};
@@ -28,7 +29,7 @@ module.exports = {
 						ret = { color: bank.color, bgcolor: bank.bgcolor };
 					}
 					return ret;
-				}
+				}.bind(this)
 			},
 			mf_bg: {
 				label: 			'Color for Master Fader',
@@ -43,17 +44,17 @@ module.exports = {
 					type: 'colorpicker',
 					label: 'Background color',
 					id: 'bg',
-					default: rgb(0, 64, 128)
+					default: self.rgb(0, 64, 128)
 				}],
 				callback: function(feedback, bank) {
 					var ret = {};
-					if (i.masterFader) {
+					if (this.masterFader) {
 						ret = { color: feedback.options.fg, bgcolor: feedback.options.bg };
 					} else {
 						ret = { color: bank.color, bgcolor: bank.bgcolor };
 					}
 					return ret;
-				}
+				}.bind(this)
 			},
 			dim_bg: {
 				label: 			'Color when Dimmed',
@@ -68,17 +69,17 @@ module.exports = {
 					type: 'colorpicker',
 					label: 'Background color',
 					id: 'bg',
-					default: rgb(128,0,0)
+					default: self.rgb(128,0,0)
 				}],
 				callback: function(feedback, bank) {
 					var ret = {};
-					if (i.faderDim) {
+					if (this.faderDim) {
 						ret = { color: feedback.options.fg, bgcolor: feedback.options.bg };
 					} else {
 						ret = { color: bank.color, bgcolor: bank.bgcolor };
 					}
 					return ret;
-				}
+				}.bind(this)
 			},
 			mute_bg: {
 				label: 			'Color when Muted',
@@ -93,17 +94,17 @@ module.exports = {
 					type: 'colorpicker',
 					label: 'Background color',
 					id: 'bg',
-					default: rgb(204,0,0)
+					default: self.rgb(204,0,0)
 				}],
 				callback: function(feedback, bank) {
 					var ret = {};
-					if (i.faderMute) {
+					if (this.faderMute) {
 						ret = { color: feedback.options.fg, bgcolor: feedback.options.bg };
 					} else {
 						ret = { color: bank.color, bgcolor: bank.bgcolor };
 					}
 					return ret;
-				}
+				}.bind(this)
 			},
 			q_bg: {
 				label: 'Cue Number color for background',
@@ -115,8 +116,8 @@ module.exports = {
 					default: ""
 				}],
 				callback: function(feedback, bank) {
-					return { bgcolor: i.cueColors[ (feedback.options.cue).replace(/[^\w\.]/gi,'_') ] };
-				}
+					return { bgcolor: this.cueColors[ (feedback.options.cue).replace(/[^\w\.]/gi,'_') ] };
+				}.bind(this)
 			},
 		};
 		return(feedbacks);

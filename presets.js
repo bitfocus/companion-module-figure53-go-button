@@ -1,5 +1,3 @@
-var rgb = require('../../image').rgb;
-var colors = require('./colors.js');
 var icons = require('../../resources/icons.js');
 
 // determine text color for a background color
@@ -35,8 +33,8 @@ module.exports = {
 				style: 'text',
 				text: 'Pause',
 				size: 'auto',
-				color: rgb(0, 0, 0),
-				bgcolor: rgb(255, 255, 0),
+				color: this.rgb(0, 0, 0),
+				bgcolor: this.rgb(255, 255, 0),
 			},
 			actions: [{
 				action: 'pause',
@@ -50,8 +48,8 @@ module.exports = {
 				style: 'text',
 				text: 'Go',
 				size: 'auto',
-				color: rgb(0, 0, 0),
-				bgcolor: rgb(0, 255, 0)
+				color: this.rgb(0, 0, 0),
+				bgcolor: this.rgb(0, 255, 0)
 			},
 			actions: [{
 				action: 'go',
@@ -65,8 +63,8 @@ module.exports = {
 				style: 'text',
 				text: 'Resume',
 				size: '18',
-				color: rgb(0, 0, 0),
-				bgcolor: rgb(0, 255, 0)
+				color: this.rgb(0, 0, 0),
+				bgcolor: this.rgb(0, 255, 0)
 			},
 			actions: [{
 				action: 'resume',
@@ -81,7 +79,7 @@ module.exports = {
 				text: 'Stop',
 				size: '30',
 				color: '16777215',
-				bgcolor: rgb(255, 0, 0)
+				bgcolor: this.rgb(255, 0, 0)
 			},
 
 			actions: [{
@@ -97,7 +95,7 @@ module.exports = {
 				text: 'Panic',
 				size: '24',
 				color: '16777215',
-				bgcolor: rgb(255, 0, 0)
+				bgcolor: this.rgb(255, 0, 0)
 			},
 
 			actions: [{
@@ -113,7 +111,7 @@ module.exports = {
 				text: 'Reset',
 				size: '24',
 				color: '16777215',
-				bgcolor: rgb(0, 0, 100)
+				bgcolor: this.rgb(0, 0, 100)
 			},
 			actions: [{
 				action: 'reset',
@@ -128,7 +126,7 @@ module.exports = {
 				text: 'Prev\\nCue',
 				size: '24',
 				color: '16777215',
-				bgcolor: rgb(0, 0, 128)
+				bgcolor: this.rgb(0, 0, 128)
 			},
 
 			actions: [{
@@ -144,7 +142,7 @@ module.exports = {
 				text: 'Next\\nCue',
 				size: '24',
 				color: '16777215',
-				bgcolor: rgb(0, 0, 100)
+				bgcolor: this.rgb(0, 0, 100)
 			},
 
 			actions: [{
@@ -159,8 +157,8 @@ module.exports = {
 				style: 'text',
 				text: 'Timer\\nStart',
 				size: '24',
-				color: rgb(0, 0, 0),
-				bgcolor: rgb(0, 255, 0)
+				color: this.rgb(0, 0, 0),
+				bgcolor: this.rgb(0, 255, 0)
 			},
 
 			actions: [{
@@ -176,7 +174,7 @@ module.exports = {
 				text: 'Timer\\nStop',
 				size: '24',
 				color: '16777215',
-				bgcolor: rgb(255, 0, 0)
+				bgcolor: this.rgb(255, 0, 0)
 			},
 
 			actions: [{
@@ -191,8 +189,8 @@ module.exports = {
 				style: 'text',
 				text: 'Timer\\nStart\\nStop',
 				size: 'auto',
-				color: rgb(0, 0, 0),
-				bgcolor: rgb(0, 255, 0)
+				color: this.rgb(0, 0, 0),
+				bgcolor: this.rgb(0, 255, 0)
 			},
 
 			actions: [{
@@ -208,7 +206,7 @@ module.exports = {
 				text: 'Timer\\nReset',
 				size: '18',
 				color: '16777215',
-				bgcolor: rgb(0, 0, 100)
+				bgcolor: this.rgb(0, 0, 100)
 			},
 
 			actions: [{
@@ -223,9 +221,9 @@ module.exports = {
 				style: 'text',
 				text: 'Oops',
 				size: 'auto',
-				color: rgb(255, 255, 255),
+				color: this.rgb(255, 255, 255),
 				tooltip: 'Stops and re-selects the most recently played cue. This command can be sent multiple times to “undo” the playback of currently playing cues in reverse order.',
-				bgcolor: rgb(255, 0, 0)
+				bgcolor: this.rgb(255, 0, 0)
 			},
 
 			actions: [{
@@ -240,8 +238,8 @@ module.exports = {
 				style: 'text',
 				text: 'Toggle Full Screen',
 				size: 'auto',
-				color: rgb(255, 255, 255),
-				bgcolor: rgb(0, 0, 100)
+				color: this.rgb(255, 255, 255),
+				bgcolor: this.rgb(0, 0, 100)
 			},
 
 			actions: [{
@@ -256,8 +254,8 @@ module.exports = {
 				style: 'text',
 				text: 'Master\\nVolume\\nToggle',
 				size: '14',
-				color: rgb(255, 255, 255),
-				bgcolor: rgb(0, 0, 100)
+				color: this.rgb(255, 255, 255),
+				bgcolor: this.rgb(0, 0, 100)
 			},
 
 			actions: [{
@@ -273,8 +271,8 @@ module.exports = {
 				style: 'text',
 				text: 'Set Volume',
 				size: 'auto',
-				color: rgb(255, 255, 255),
-				bgcolor: rgb(0, 0, 100)
+				color: this.rgb(255, 255, 255),
+				bgcolor: this.rgb(0, 0, 100)
 			},
 
 			actions: [{
@@ -292,8 +290,8 @@ module.exports = {
 				style: 'text',
 				text: 'Volume\\nIncrease\\n6 dB',
 				size: '14',
-				color: rgb(255, 255, 255),
-				bgcolor: rgb(0, 0, 100)
+				color: this.rgb(255, 255, 255),
+				bgcolor: this.rgb(0, 0, 100)
 			},
 
 			actions: [{
@@ -309,8 +307,8 @@ module.exports = {
 				style: 'text',
 				text: 'Volume\\nDecrease\\n6 dB',
 				size: '14',
-				color: rgb(255, 255, 255),
-				bgcolor: rgb(0, 0, 100)
+				color: this.rgb(255, 255, 255),
+				bgcolor: this.rgb(0, 0, 100)
 			},
 
 			actions: [{
@@ -325,8 +323,8 @@ module.exports = {
 				style: 'text',
 				text: 'Toggle\\nDim',
 				size: 'auto',
-				color: rgb(255, 255, 255),
-				bgcolor: rgb(0, 0, 100)
+				color: this.rgb(255, 255, 255),
+				bgcolor: this.rgb(0, 0, 100)
 			},
 			actions: [{
 				action: 'toggleDim',
@@ -339,8 +337,8 @@ module.exports = {
 				style: 'text',
 				text: 'Toggle\\nMute',
 				size: 'auto',
-				color: rgb(255, 255, 255),
-				bgcolor: rgb(0, 0, 100)
+				color: this.rgb(255, 255, 255),
+				bgcolor: this.rgb(0, 0, 100)
 			},
 			actions: [{
 				action: 'toggleMute',
@@ -354,8 +352,8 @@ module.exports = {
 				style: 'text',
 				text: 'Hit\\nX\\nGo',
 				size: 'auto',
-				color: rgb(0, 0, 0),
-				bgcolor: rgb(0, 255, 0)
+				color: this.rgb(0, 0, 0),
+				bgcolor: this.rgb(0, 255, 0)
 			},
 
 			actions: [{
@@ -373,8 +371,8 @@ module.exports = {
 				style: 'text',
 				text: 'Hit\\nX\\nStop',
 				size: 'auto',
-				color: rgb(255, 255, 255),
-				bgcolor: rgb(255, 0, 0)
+				color: this.rgb(255, 255, 255),
+				bgcolor: this.rgb(255, 0, 0)
 			},
 
 			actions: [{
@@ -392,8 +390,8 @@ module.exports = {
 				style: 'text',
 				text: 'Hit\\nX\\nPause',
 				size: 'auto',
-				color: rgb(0, 0, 0),
-				bgcolor: rgb(255, 255, 0)
+				color: this.rgb(0, 0, 0),
+				bgcolor: this.rgb(255, 255, 0)
 			},
 
 			actions: [{
