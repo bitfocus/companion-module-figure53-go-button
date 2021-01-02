@@ -1,4 +1,14 @@
 /*
+ version 1.2.2 (jjr)
+	Corrected rgb function to self.rgb
+	Re-factored supplimental files to use module as 'this'
+
+ Version 1.2.1 (jjr)
+	fix UDP logic
+
+ Version 1.2.0 (jjr)
+	minor Text cleanup
+
  Version 1.1.0 (jjr)
 	Rebased from qlab-advance for protocol and timer fixes and improvements
 	Removed non-qlab only items, added go-button items
@@ -32,19 +42,9 @@
 	Add the ability to send custom OSC commands.
 	Commented out unsupported QLab presets and actions.
 
- Todo:
-	Remove Audition mode code.
-	Remove Show mode code.
-	Comment out unneeded QLab 3x or 4x connection code.
 */
 
 var instance_skel = require('../../instance_skel');
-var rgb = require('../../image').rgb;
-var presets = require('./presets');
-var actions = require('./actions');
-var variables = require('./variables');
-var feedbacks = require('./feedbacks');
-var Cue = require('./cues');
 var OSC = require('osc');
 //var util = require('util');
 var debug;
@@ -63,6 +63,12 @@ function instance(system, id, config) {
 	self.applyConfig(config);
 	self.pollCount = 0;
 
+	self.colors = require('./colors');
+	self.Presets = require('./presets');
+	self.Actions = require('./actions');
+	self.Variables = require('./variables');
+	self.Feedbacks = require('./feedbacks');
+	self.Cue = require('./cues');
 	self.resetVars();
 
 	// each instance needs a separate local port
@@ -144,7 +150,7 @@ instance.prototype.resetVars = function (doUpdate) {
 	// play head info
 	self.nextCue = '';
 	// most recent running cue
-	self.runningCue = new Cue();
+	self.runningCue = new self.Cue();
 
 	// clear 'variables'
 	if (doUpdate && self.useTCP) {
@@ -182,7 +188,7 @@ instance.prototype.updateNextCue = function () {
 	var self = this;
 	var nc = self.showCues[self.nextCue];
 	if (!nc) {
-		nc = new Cue();
+		nc = new self.Cue();
 	}
 	if (nc.qType != 'super') {
 		nc = nc
@@ -323,14 +329,22 @@ instance.prototype.init = function () {
 	}
 };
 
+instance.prototype.init_presets = function () {
+	this.setPresetDefinitions(this.Presets.setPresets.call(this));
+};
+
 instance.prototype.init_feedbacks = function () {
-	this.setFeedbackDefinitions(feedbacks.setFeedbacks(this));
+	this.setFeedbackDefinitions(this.Feedbacks.setFeedbacks.call(this));
 };
 
 instance.prototype.init_variables = function () {
-	this.setVariableDefinitions(variables.setVariables());
+	this.setVariableDefinitions(this.Variables.setVariables.call(this));
 	this.updateRunning();
 	this.updateNextCue();
+};
+
+instance.prototype.actions = function (system) {
+	this.setActions(this.Actions.setActions.call(this));
 };
 
 instance.prototype.sendOSC = function (node, arg) {
@@ -485,9 +499,9 @@ instance.prototype.init_osc = function () {
 		self.qSocket.open();
 
 		self.qSocket.on("error", function (err) {
-			debug("Error", err);
 			self.connecting = false;
 			if (!self.hasError) {
+				debug("Error", err);
 				self.log('error', "Error: " + err.message);
 				self.status(self.STATUS_ERROR, "Can't connect to Go Button\n" + err.message);
 				self.hasError = true;
@@ -583,7 +597,7 @@ instance.prototype.updateCues = function (jCue, stat, ql) {
 		var idCount = {};
 		var dupIds = false;
 		while (i < jCue.length) {
-			q = new Cue(jCue[i], self);
+			q = new self.Cue(jCue[i], self);
 			q.qOrder = i;
 			if (ql) {
 				q.qList = ql;
@@ -604,7 +618,7 @@ instance.prototype.updateCues = function (jCue, stat, ql) {
 		// Hit cues have background
 		self.checkFeedbacks('q_bg');
 	} else {
-		q = new Cue(jCue, self);
+		q = new self.Cue(jCue, self);
 		if (qTypes.includes(q.qType)) {
 			self.updateQVars(q);
 			self.showCues[q.uniqueID] = q;
@@ -656,7 +670,7 @@ instance.prototype.updatePlaying = function () {
 	});
 
 	if (runningCues.length == 0) {
-		self.runningCue = new Cue();
+		self.runningCue = new self.Cue();
 	} else {
 		i = 0;
 
@@ -887,11 +901,6 @@ instance.prototype.config_fields = function () {
 	return configs;
 };
 
-instance.prototype.init_presets = function () {
-	this.setPresetDefinitions(presets.setPresets());
-};
-
-
 // When module gets deleted
 instance.prototype.destroy = function () {
 	var self = this;
@@ -911,11 +920,6 @@ instance.prototype.destroy = function () {
 	}
 	self.status(self.STATUS_UNKNOWN,"Disabled");
 	debug("destroy", self.id);
-};
-
-// eslint-disable-next-line no-unused-vars
-instance.prototype.actions = function (system) {
-	this.setActions(actions.setActions());
 };
 
 instance.prototype.action = function (action) {
