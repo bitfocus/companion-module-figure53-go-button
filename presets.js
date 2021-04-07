@@ -1,4 +1,4 @@
-var icons = require('../../resources/icons.js');
+var icons = require('../../lib/resources/icons.js');
 
 // determine text color for a background color
 textColor = function (pbin) {
