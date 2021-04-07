@@ -893,7 +893,6 @@ instance.prototype.config_fields = function () {
 			id: 'passcode',
 			label: 'OSC Pascode',
 			width: 6,
-			regex: self.REGEX_NUMBER,
 			tooltip: 'The passcode to controll Go Button.\nLeave blank if not needed.'
 		},
 
