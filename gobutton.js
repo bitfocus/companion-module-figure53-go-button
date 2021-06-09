@@ -87,28 +87,24 @@ function instance(system, id, config) {
 		self.config._configIdx = -1;
 	}
 
-	self.addUpgradeScript(function (config, actions, releaseActions, feedbacks) {
-		var changed = false;
+	return self;
+}
 
-		function upgradePass(actions, changed) {
-			for (var k in actions) {
-				var action = actions[k];
-				// nothing for now
+instance.GetUpgradeScripts = function() {
+	return [
+		function (context, config, actions, feedbacks) {
+			var changed = false;
+
+			if (config) {
+				if (!config.useTenths) {
+					config.useTenths = false;
+					changed = true;
+				}
 			}
+			
 			return changed;
 		}
-
-		changed = upgradePass(actions, changed);
-		changed = upgradePass(releaseActions, changed);
-
-		if (!config.useTenths) {
-			config.useTenths = false;
-			changed = true;
-		}
-		return changed;
-	});
-
-	return self;
+	]
 }
 
 instance.prototype.applyConfig = function (config) {
