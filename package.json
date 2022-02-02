@@ -18,5 +18,13 @@
 	"contributors": [
 		"Modified for Go Button by Anthony Hunt <ant.hunt@gmail.com>"
 	],
-	"license": "MIT"
+	"license": "MIT",
+	"homepage": "https://github.com/bitfocus/companion-module-figure53-go-button#readme",
+	"bugs": {
+		"url": "https://github.com/bitfocus/companion-module-figure53-go-button/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/bitfocus/companion-module-figure53-go-button.git"
+	}
 }
