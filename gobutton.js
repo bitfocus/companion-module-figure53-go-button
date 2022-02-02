@@ -352,9 +352,9 @@ instance.prototype.sendOSC = function (node, arg) {
 			host = self.config.host;
 		}
 		if (self.config.passcode !== undefined && self.config.passcode !== "") {
-			self.system.emit('osc_send', host, self.config.port, "/connect", [self.config.passcode]);
+			self.oscSend(host, self.config.port, "/connect", [self.config.passcode]);
 		}
-		self.system.emit('osc_send',host, self.config.port, node, arg);
+		self.oscSend(host, self.config.port, node, arg);
 	} else if (self.ready) {
 		self.qSocket.send({
 			address: node,
