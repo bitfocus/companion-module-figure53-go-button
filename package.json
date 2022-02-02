@@ -1,6 +1,6 @@
 {
 	"name": "figure53-go-button",
-	"version": "1.2.3",
+	"version": "1.2.4",
 	"api_version": "1.0.0",
 	"keywords": [
 		"Software",
@@ -19,5 +19,4 @@
 		"Modified for Go Button by Anthony Hunt <ant.hunt@gmail.com>"
 	],
 	"license": "MIT"
-
 }
