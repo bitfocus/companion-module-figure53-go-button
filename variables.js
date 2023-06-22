@@ -1,79 +1,73 @@
-// var rgb = require('../../image').rgb;
+export function compileVariableDefinitions() {
 
-module.exports = {
-
-	setVariables: function() {
-
-		var variables = [
+		return [
 			{
-				label: 'Version of Go Button connected',
-				name:  'q_ver'
+				name: 'Version of Go Button connected',
+				variableId:  'q_ver'
 			},
 			{
-				label: 'Show Name',
-				name:  's_name'
+				name: 'Show Name',
+				variableId:  's_name'
 			},
 			{
-				label: 'Playhead Cue UniqueID',
-				name:  'n_id'
+				name: 'Playhead Cue UniqueID',
+				variableId:  'n_id'
 			},
 			{
-				label: 'Playhead Cue Name',
-				name:  'n_name'
+				name: 'Playhead Cue Name',
+				variableId:  'n_name'
 			},
 			{
-				label: 'Playhead Cue Number',
-				name:  'n_num'
+				name: 'Playhead Cue Number',
+				variableId:  'n_num'
 			},
 			{
-				label: 'Playhead Notes',
-				name:  'n_notes'
+				name: 'Playhead Notes',
+				variableId:  'n_notes'
 			},
 			{
-				label: 'Playhead Cue Status',
-				name:  'n_stat'
+				name: 'Playhead Cue Status',
+				variableId:  'n_stat'
 			},
 			{
-				label: 'GoButton Text',
-				name:  'g_text'
+				name: 'GoButton Text',
+				variableId:  'g_text'
 			},
 			{
-				label: 'Running Cue UniqueID',
-				name:  'r_id'
+				name: 'Running Cue UniqueID',
+				variableId:  'r_id'
 			},
 			{
-				label: 'Running Cue Name',
-				name:  'r_name'
+				name: 'Running Cue Name',
+				variableId:  'r_name'
 			},
 			{
-				label: 'Running Cue Number',
-				name:  'r_num'
+				name: 'Running Cue Number',
+				variableId:  'r_num'
 			},
 			{
-				label: 'Running Cue Status',
-				name:  'r_stat'
+				name: 'Running Cue Status',
+				variableId:  'r_stat'
 			},
 			{
-				label: 'Running Cue Time left, variable size',
-				name:  'r_left'
+				name: 'Running Cue Time left, variable size',
+				variableId:  'r_left'
 			},
 			{
-				label: 'Running Cue Time left, HH:MM:SS',
-				name:  'r_hhmmss'
+				name: 'Running Cue Time left, HH:MM:SS',
+				variableId:  'r_hhmmss'
 			},
 			{
-				label: 'Running Cue Time left, Hour',
-				name:  'r_hh'
+				name: 'Running Cue Time left, Hour',
+				variableId:  'r_hh'
 			},
 			{
-				label: 'Running Cue Time left, Minute',
-				name:  'r_mm'
+				name: 'Running Cue Time left, Minute',
+				variableId:  'r_mm'
 			},
 			{
-				label: 'Running Cue Time left, Second',
-				name:  'r_ss'
+				name: 'Running Cue Time left, Second',
+				variableId:  'r_ss'
 			}
 		];
-		return(variables);
-	}
 };

@@ -1,30 +1,24 @@
 {
 	"name": "figure53-go-button",
-	"version": "1.2.6",
-	"api_version": "1.0.0",
-	"keywords": [
-		"Software",
-		"Media Server"
-	],
+	"version": "2.0.0",
+	"main": "gobutton.js",
+	"type": "module",
 	"manufacturer": "Figure 53",
 	"product": "GoButton with feedback",
 	"shortname": "gobutton",
 	"description": "Go Button plugin for Companion with feedback",
-	"main": "gobutton.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"author": "Original code John A Knight Jr <jjr@ayesti.com>",
-	"contributors": [
-		"Modified for Go Button by Anthony Hunt <ant.hunt@gmail.com>"
-	],
-	"license": "MIT",
-	"homepage": "https://github.com/bitfocus/companion-module-figure53-go-button#readme",
-	"bugs": {
-		"url": "https://github.com/bitfocus/companion-module-figure53-go-button/issues"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/bitfocus/companion-module-figure53-go-button.git"
+	},
+	"dependencies": {
+		"@companion-module/base": "~1.4.1",
+		"osc": "^2.4.4"
+	},
+	"devDependencies": {
+		"@companion-module/tools": "~1.3.1"
 	}
 }
