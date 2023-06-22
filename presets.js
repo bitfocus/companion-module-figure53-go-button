@@ -1,407 +1,596 @@
-var icons = require('../../lib/resources/icons.js');
+import { combineRgb } from '@companion-module/base'
+import Icons from './icons.js'
+import * as Colors from './colors.js'
 
 // determine text color for a background color
-textColor = function (pbin) {
-
-	var r = pbin >> 16;
-	var g = pbin >> 8 & 0xFF;
-	var b = pbin & 0xFF;
-	var lum = Math.sqrt(
-		0.299 * (r * r) +
-		0.587 * (g * g) +
-		0.114 * (b * b)
-	);
+function textColor(pbin) {
+	const r = pbin >> 16
+	const g = (pbin >> 8) & 0xff
+	const b = pbin & 0xff
+	const lum = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b))
 
 	// determine whether the color is light or dark
 	if (lum > 127.5) {
-		return '0';
+		return 0
 	} else {
-		return '16777215';
+		return 0xffffff
 	}
-};
+}
 
-module.exports = {
+export function compilePresetDefinitions(self) {
+	const presets = {}
 
-	setPresets: function () {
-
-		var presets = [];
-
-		presets.push({
-			category: 'CueList',
-			label: 'Pause / Resume',
-			bank: {
-				style: 'text',
-				text: 'Pause',
-				size: 'auto',
-				color: this.rgb(0, 0, 0),
-				bgcolor: this.rgb(255, 255, 0),
+	presets['cuelist-pause'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Pause / Resume',
+		style: {
+			text: '',
+			png64: Icons.ICON_PAUSE_INACTIVE,
+			pngalignment: 'center:center',
+			size: '18',
+			color: combineRgb(0, 0, 0),
+			bgcolor: combineRgb(255, 255, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'pause',
+						options: {},
+					},
+				],
+				up: [],
 			},
-			actions: [{
-				action: 'pause',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'GO',
-			bank: {
-				style: 'text',
-				text: 'Go',
-				size: 'auto',
-				color: this.rgb(0, 0, 0),
-				bgcolor: this.rgb(0, 255, 0)
-			},
-			actions: [{
-				action: 'go',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Resume',
-			bank: {
-				style: 'text',
-				text: 'Resume',
-				size: '18',
-				color: this.rgb(0, 0, 0),
-				bgcolor: this.rgb(0, 255, 0)
-			},
-			actions: [{
-				action: 'resume',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Stop',
-			bank: {
-				style: 'text',
-				text: 'Stop',
-				size: '30',
-				color: '16777215',
-				bgcolor: this.rgb(255, 0, 0)
-			},
-
-			actions: [{
-				action: 'stop',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Panic',
-			bank: {
-				style: 'text',
-				text: 'Panic',
-				size: '24',
-				color: '16777215',
-				bgcolor: this.rgb(255, 0, 0)
-			},
-
-			actions: [{
-				action: 'panic',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Reset',
-			bank: {
-				style: 'text',
-				text: 'Reset',
-				size: '24',
-				color: '16777215',
-				bgcolor: this.rgb(0, 0, 100)
-			},
-			actions: [{
-				action: 'reset',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Previous Cue',
-			bank: {
-				style: 'text',
-				text: 'Prev\\nCue',
-				size: '24',
-				color: '16777215',
-				bgcolor: this.rgb(0, 0, 128)
-			},
-
-			actions: [{
-				action: 'previous',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Next Cue',
-			bank: {
-				style: 'text',
-				text: 'Next\\nCue',
-				size: '24',
-				color: '16777215',
-				bgcolor: this.rgb(0, 0, 100)
-			},
-
-			actions: [{
-				action: 'next',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Timer Start',
-			bank: {
-				style: 'text',
-				text: 'Timer\\nStart',
-				size: '24',
-				color: this.rgb(0, 0, 0),
-				bgcolor: this.rgb(0, 255, 0)
-			},
-
-			actions: [{
-				action: 'timer_start',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Timer Stop',
-			bank: {
-				style: 'text',
-				text: 'Timer\\nStop',
-				size: '24',
-				color: '16777215',
-				bgcolor: this.rgb(255, 0, 0)
-			},
-
-			actions: [{
-				action: 'timer_stop',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Timer Toggle',
-			bank: {
-				style: 'text',
-				text: 'Timer\\nStart\\nStop',
-				size: 'auto',
-				color: this.rgb(0, 0, 0),
-				bgcolor: this.rgb(0, 255, 0)
-			},
-
-			actions: [{
-				action: 'timer_toggle',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'Timer Reset',
-			bank: {
-				style: 'text',
-				text: 'Timer\\nReset',
-				size: '18',
-				color: '16777215',
-				bgcolor: this.rgb(0, 0, 100)
-			},
-
-			actions: [{
-				action: 'timer_reset',
-			}]
-		});
-
-		presets.push({
-			category: 'CueList',
-			label: 'oops',
-			bank: {
-				style: 'text',
-				text: 'Oops',
-				size: 'auto',
-				color: this.rgb(255, 255, 255),
-				tooltip: 'Stops and re-selects the most recently played cue. This command can be sent multiple times to “undo” the playback of currently playing cues in reverse order.',
-				bgcolor: this.rgb(255, 0, 0)
-			},
-
-			actions: [{
-				action: 'oops',
-			}]
-		});
-
-		presets.push({
-			category: 'Global',
-			label: 'Toggle Full Screen',
-			bank: {
-				style: 'text',
-				text: 'Toggle Full Screen',
-				size: 'auto',
-				color: this.rgb(255, 255, 255),
-				bgcolor: this.rgb(0, 0, 100)
-			},
-
-			actions: [{
-				action: 'toggleFullScreen',
-			}]
-		});
-
-		presets.push({
-			category: 'Global',
-			label: 'Toggle Master Volume Visible',
-			bank: {
-				style: 'text',
-				text: 'Master\\nVolume\\nToggle',
-				size: '14',
-				color: this.rgb(255, 255, 255),
-				bgcolor: this.rgb(0, 0, 100)
-			},
-
-			actions: [{
-				action: 'toggleMasterVolumeVisible',
-
-			}]
-		});
-
-		presets.push({
-			category: 'Global',
-			label: 'Set Master Volume in dB',
-			bank: {
-				style: 'text',
-				text: 'Set Volume',
-				size: 'auto',
-				color: this.rgb(255, 255, 255),
-				bgcolor: this.rgb(0, 0, 100)
-			},
-
-			actions: [{
-				action: 'volume',
-				options: {
-					volume: '0.0',
-				}
-			}]
-		});
-
-		presets.push({
-			category: 'Global',
-			label: 'increase Master Volume by 6dB',
-			bank: {
-				style: 'text',
-				text: 'Volume\\nIncrease\\n6 dB',
-				size: '14',
-				color: this.rgb(255, 255, 255),
-				bgcolor: this.rgb(0, 0, 100)
-			},
-
-			actions: [{
-				action: 'volumeStepUp',
-			}]
-		});
-
-
-		presets.push({
-			category: 'Global',
-			label: 'Decrease Master Volume by 6dB',
-			bank: {
-				style: 'text',
-				text: 'Volume\\nDecrease\\n6 dB',
-				size: '14',
-				color: this.rgb(255, 255, 255),
-				bgcolor: this.rgb(0, 0, 100)
-			},
-
-			actions: [{
-				action: 'volumeStepDown',
-			}]
-		});
-
-		presets.push({
-			category: 'Global',
-			label: 'Toggle Master Dim',
-			bank: {
-				style: 'text',
-				text: 'Toggle\\nDim',
-				size: 'auto',
-				color: this.rgb(255, 255, 255),
-				bgcolor: this.rgb(0, 0, 100)
-			},
-			actions: [{
-				action: 'toggleDim',
-			}]
-		});
-		presets.push({
-			category: 'Global',
-			label: 'Toggle Master Mute',
-			bank: {
-				style: 'text',
-				text: 'Toggle\\nMute',
-				size: 'auto',
-				color: this.rgb(255, 255, 255),
-				bgcolor: this.rgb(0, 0, 100)
-			},
-			actions: [{
-				action: 'toggleMute',
-			}]
-		});
-
-		presets.push({
-			category: 'Hit',
-			label: 'Hit x Go',
-			bank: {
-				style: 'text',
-				text: 'Hit\\nX\\nGo',
-				size: 'auto',
-				color: this.rgb(0, 0, 0),
-				bgcolor: this.rgb(0, 255, 0)
-			},
-
-			actions: [{
-				action: 'hitGo',
-				options: {
-					hitNum: '1',
-				}
-			}]
-		});
-
-		presets.push({
-			category: 'Hit',
-			label: 'Hit x Stop',
-			bank: {
-				style: 'text',
-				text: 'Hit\\nX\\nStop',
-				size: 'auto',
-				color: this.rgb(255, 255, 255),
-				bgcolor: this.rgb(255, 0, 0)
-			},
-
-			actions: [{
-				action: 'hitStop',
-				options: {
-					hitNum: '1',
-				}
-			}]
-		});
-
-		presets.push({
-			category: 'Hit',
-			label: 'Hit x Pause',
-			bank: {
-				style: 'text',
-				text: 'Hit\\nX\\nPause',
-				size: 'auto',
-				color: this.rgb(0, 0, 0),
-				bgcolor: this.rgb(255, 255, 0)
-			},
-
-			actions: [{
-				action: 'hitPause',
-				options: {
-					hitNum: '1',
-				}
-			}]
-		});
-
-		return (presets);
+		],
+		feedbacks: [],
 	}
-};
+
+	presets['cuelist-go'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'GO',
+		style: {
+			text: '',
+			png64: Icons.ICON_PLAY_INACTIVE,
+			pngalignment: 'center:center',
+			size: '18',
+			color: 0,
+			bgcolor: combineRgb(0, 255, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'go',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-resume'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Resume',
+		style: {
+			text: 'Resume',
+			size: '18',
+			color: 0,
+			bgcolor: combineRgb(0, 255, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'resume',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-stop'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Stop',
+		style: {
+			text: 'Stop',
+			size: '30',
+			color: 0xffffff,
+			bgcolor: combineRgb(255, 0, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'stop',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-panic'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Panic',
+		style: {
+			text: '',
+			png64: Icons.ICON_STOP_INACTIVE,
+			pngalignment: 'center:center',
+			size: '18',
+			color: combineRgb(255, 255, 255),
+			bgcolor: 0,
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'panic',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-reset'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Reset',
+		style: {
+			text: 'Reset',
+			size: '24',
+			color: 0xffffff,
+			bgcolor: combineRgb(0, 0, 100),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'reset',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-previous-cue'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Previous Cue',
+		style: {
+			text: '',
+			png64: Icons.ICON_REW_INACTIVE,
+			pngalignment: 'center:center',
+			size: '18',
+			color: combineRgb(255, 255, 255),
+			bgcolor: 0,
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'previous',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-next-cue'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Next Cue',
+		style: {
+			text: '',
+			png64: Icons.ICON_FWD_INACTIVE,
+			pngalignment: 'center:center',
+			size: '18',
+			color: combineRgb(255, 255, 255),
+			bgcolor: 0,
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'next',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-timer-start'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Timer Start',
+		style: {
+			text: 'Timer\\nStart',
+			size: '24',
+			color: 0,
+			bgcolor: combineRgb(0, 255, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'timer_start',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-timer-stop'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Timer Stop',
+		style: {
+			text: 'Timer\\nStop',
+			size: '24',
+			color: 0xffffff,
+			bgcolor: combineRgb(255, 0, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'timer_stop',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-timer-toggle'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Timer Toggle',
+		style: {
+			text: 'Timer\\nToggle',
+			size: '24',
+			color: 0,
+			bgcolor: combineRgb(0, 255, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'timer_toggle',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+	presets['cuelist-timer-reset'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'Timer Reset',
+		style: {
+			text: 'Timer\\nReset',
+			size: '24',
+			color: 0xffffff,
+			bgcolor: combineRgb(0, 0, 100),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'timer_reset',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['cuelist-oops'] = {
+		type: 'button',
+		category: 'CueList',
+		name: 'oops',
+		style: {
+			text: 'Oops',
+			size: 'auto',
+			tooltip:
+				'Stops and re-selects the most recently played cue. This command can be sent multiple times to “undo” the playback of currently playing cues in reverse order.',
+			color: 0xffffff,
+			bgcolor: combineRgb(255, 0, 0),
+		},
+
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'oops',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['global-fullscreen'] = {
+		type: 'button',
+		category: 'Global',
+		name: 'Toggle Full Screen',
+		style: {
+			text: 'Toggle Full Screen',
+			size: 'auto',
+			color: 0xffffff,
+			bgcolor: combineRgb(0, 0, 100),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'toggleFullScreen',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['global-master-vol-vis'] = {
+		type: 'button',
+		category: 'Global',
+		name: 'Toggle Master Volume Visible',
+		style: {
+			text: 'Toggle Master Volume Visible',
+			size: 'auto',
+			color: 0xffffff,
+			bgcolor: combineRgb(0, 0, 100),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'toggleMasterVolumeVisible',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['global-master-vol-set'] = {
+		type: 'button',
+		category: 'Global',
+		name: 'Set Master Volume dB',
+		style: {
+			text: 'Set Master Volume (dB)',
+			size: 'auto',
+			color: 0xffffff,
+			bgcolor: combineRgb(0, 0, 100),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'volume',
+						options: {
+							volume: 0.0,
+						},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['global-master-vol-inc'] = {
+		type: 'button',
+		category: 'Global',
+		name: 'Increase Master Volume 6dB',
+		style: {
+			text: 'Master Volume\\n +6db',
+			size: '14',
+			color: 0xffffff,
+			bgcolor: combineRgb(0, 0, 100),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'volumeStepUp',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['global-master-vol-dec'] = {
+		type: 'button',
+		category: 'Global',
+		name: 'Decrease Master Volume 6dB',
+		style: {
+			text: 'Master Volume\\n -6db',
+			size: '14',
+			color: 0xffffff,
+			bgcolor: combineRgb(0, 0, 100),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'volumeStepDown',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['global-master-dim'] = {
+		type: 'button',
+		category: 'Global',
+		name: 'Toggle Master Dim',
+		style: {
+			text: 'Toggle\\nDim',
+			size: 'auto',
+			color: 0xffffff,
+			bgcolor: combineRgb(0, 0, 100),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'toggleDim',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['global-master-mute'] = {
+		type: 'button',
+		category: 'Global',
+		name: 'Toggle Master Mute',
+		style: {
+			text: 'Toggle\\nMute',
+			size: 'auto',
+			color: 0xffffff,
+			bgcolor: combineRgb(0, 0, 100),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'toggleMute',
+						options: {},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['hit-go'] = {
+		type: 'button',
+		category: 'Hit',
+		name: 'Hit x Go',
+		style: {
+			text: 'Hit\\nX\\nGo',
+			size: 'auto',
+			color: 0,
+			bgcolor: combineRgb(0, 255, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'hitGo',
+						options: {
+							hitNum: '1',
+						},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['hit-stop'] = {
+		type: 'button',
+		category: 'Hit',
+		name: 'Hit x Stop',
+		style: {
+			text: 'Hit\\nX\\nStop',
+			size: 'auto',
+			color: 0,
+			bgcolor: combineRgb(255, 0, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'hitStop',
+						options: {
+							hitNum: '1',
+						},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	presets['hit-pause'] = {
+		type: 'button',
+		category: 'Hit',
+		name: 'Hit x Pause',
+		style: {
+			text: 'Hit\\nX\\nPause',
+			size: 'auto',
+			color: 0,
+			bgcolor: combineRgb(255, 255, 0),
+		},
+		steps: [
+			{
+				down: [
+					{
+						actionId: 'hitPause',
+						options: {
+							hitNum: '1',
+						},
+					},
+				],
+				up: [],
+			},
+		],
+		feedbacks: [],
+	}
+
+	return presets
+}

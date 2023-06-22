@@ -1,6 +1,9 @@
 # companion-module-figure53-go-button
 See HELP.md and LICENSE
 
+**Version 2.0.0 (jjr)**
+*	Updated and refactored to Companion v3 module
+
 **Version 1.2.2 (jjr)**
 *	Corrected rgb function to self.rgb
 *	Re-factored supplimental files to use module as 'this'
