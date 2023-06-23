@@ -1,6 +1,6 @@
 {
 	"name": "figure53-go-button",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"main": "gobutton.js",
 	"type": "module",
 	"manufacturer": "Figure 53",
