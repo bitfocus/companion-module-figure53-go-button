@@ -62,7 +62,7 @@ class GoButtonInstance extends InstanceBase {
 		this.needPasscode = false
 		this.useTCP = config.useTCP
 		this.hasError = false
-		this.disabled = true
+		this.disabled = false
 		this.pollCount = 0
 		this.resetVars()
 		this.init_actions()
@@ -123,8 +123,8 @@ class GoButtonInstance extends InstanceBase {
 			this.updateNextCue()
 			this.updatePlaying()
 
-			Object.keys(cues).forEach(function (cue) {
-				qNum = cleanCueNum(cues[cue].qNumber)
+			Object.keys(cues).forEach((cue) => {
+				qNum = this.cleanCueNum(cues[cue].qNumber)
 				qName = cues[cue].qName
 				if (qNum != '' && qName != '') {
 					delete this.cueColors[qNum]
@@ -292,7 +292,7 @@ class GoButtonInstance extends InstanceBase {
 			}, 5000)
 		} else if (self.needShow && self.ready) {
 			if (self.config?.passcode !== '') {
-				self.log('debug', 'sending  ' + self.config.host)
+				self.log('debug', 'sending passcode to ' + self.config.host)
 				self.sendOSC('/connect', [{ type: 's', value: self.config.passcode }])
 			} else {
 				self.sendOSC('/connect', [])
@@ -309,14 +309,14 @@ class GoButtonInstance extends InstanceBase {
 				clearTimeout(self.timer)
 				self.timer = undefined
 			}
-			self.timer = setTimeout(function () {
+			self.timer = setTimeout(() => {
 				self.prime_vars()
 			}, 5000)
 		}
 	}
 
 	/**
-	 * heartbeat/poll function for 'updates' that aren't automatic
+	 * heartbeat/poll for 'updates' that aren't automatic
 	 */
 	rePulse() {
 		const rc = this.runningCue
@@ -401,19 +401,17 @@ class GoButtonInstance extends InstanceBase {
 					self.updateStatus(InstanceStatus.ConnectionFailure, 'Cannot connect to Go Button\n' + err.message)
 					self.hasError = true
 				}
-				if (err.code == 'ECONNREFUSED') {
-					self.qSocket.removeAllListeners()
-					if (self.timer !== undefined) {
-						clearTimeout(self.timer)
-					}
-					if (self.pulse !== undefined) {
-						clearInterval(self.pulse)
-						self.pulse = undefined
-					}
-					self.timer = setTimeout(function () {
-						self.connect()
-					}, 5000)
+				self.qSocket.removeAllListeners()
+				if (self.timer !== undefined) {
+					clearTimeout(self.timer)
 				}
+				if (self.pulse !== undefined) {
+					clearInterval(self.pulse)
+					self.pulse = undefined
+				}
+				self.timer = setTimeout(() => {
+					self.connect()
+				}, 5000)
 			})
 
 			self.qSocket.on('close', () => {
@@ -479,7 +477,7 @@ class GoButtonInstance extends InstanceBase {
 				}
 			})
 		}
-		// self.qSocket.on("data", function(data){
+		// self.qSocket.on("data", (data) => {
 		// 	debug ("Got",data, "from",self.qSocket.options.address);
 		// });
 	}
@@ -745,10 +743,10 @@ class GoButtonInstance extends InstanceBase {
 			delete this.pulse
 		}
 		if (this.qSocket) {
-			this.disabled = true
 			this.qSocket.close()
 			delete this.qSocket
 		}
+		this.disabled = true
 		this.updateStatus(InstanceStatus.UnknownError, 'Disabled')
 	}
 }
