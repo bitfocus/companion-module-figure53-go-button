@@ -154,7 +154,7 @@ export function compileActionDefinitions(self) {
 			},
 		},
 		'start': {
-			label: 'Start (cue)',
+			name: 'Start (cue)',
 			options: [
 				{
 					type: 'textinput',
@@ -168,7 +168,7 @@ export function compileActionDefinitions(self) {
 			},
 		},
 		'goto': {
-			label: 'Go To (cue)',
+			name: 'Go To (cue)',
 			options: [
 				{
 					type: 'textinput',
@@ -182,7 +182,7 @@ export function compileActionDefinitions(self) {
 			},
 		},
 		'hitGo': {
-			label: 'Hit Go',
+			name: 'Hit Go',
 			options: [
 				{
 					type: 'textinput',
@@ -196,7 +196,7 @@ export function compileActionDefinitions(self) {
 			},
 		},
 		'hitStop': {
-			label: 'Hit Stop',
+			name: 'Hit Stop',
 			options: [
 				{
 					type: 'textinput',
@@ -210,7 +210,7 @@ export function compileActionDefinitions(self) {
 			},
 		},
 		'hitPause': {
-			label: 'Hit Pause',
+			name: 'Hit Pause',
 			options: [
 				{
 					type: 'textinput',
@@ -225,7 +225,7 @@ export function compileActionDefinitions(self) {
 		},
 
 		'volume': {
-			label: 'Master Volume Set',
+			name: 'Master Volume Set',
 			options: [
 				{
 					type: 'textinput',

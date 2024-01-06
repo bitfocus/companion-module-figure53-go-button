@@ -1,6 +1,6 @@
 {
 	"name": "figure53-go-button",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"main": "gobutton.js",
 	"type": "module",
 	"manufacturer": "Figure 53",
@@ -15,7 +15,7 @@
 		"url": "git+https://github.com/bitfocus/companion-module-figure53-go-button.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.4.1",
+		"@companion-module/base": "1.4.3",
 		"osc": "^2.4.4"
 	},
 	"devDependencies": {
